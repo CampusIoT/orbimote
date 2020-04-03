@@ -23,13 +23,14 @@
 * pin header for RXTX
 
 ## Header for JTAG/SWD
-  Pin 1 : GND
-  Pin 2 : VCC
-  Pin 3 : JTCK/SWCLK (pin 2 of the iM880a)
-  Pin 4 : JTMS/SWDAT (pin 3 of the iM880a)
-  Pin 5 : JTDO       (pin 4 of the iM880a)
-  Pin 6 : JTDI       (pin 5 of the iM880a)
-  Pin 7 : RESET      (pin 7 of the iM880a)
+
+    Pin 1 : GND
+    Pin 2 : VCC
+    Pin 3 : JTCK/SWCLK (pin 2 of the iM880a)
+    Pin 4 : JTMS/SWDAT (pin 3 of the iM880a)
+    Pin 5 : JTDO       (pin 4 of the iM880a)
+    Pin 6 : JTDI       (pin 5 of the iM880a)
+    Pin 7 : RESET      (pin 7 of the iM880a)
 
 ## GNSS additional modules for near-space applications
 
