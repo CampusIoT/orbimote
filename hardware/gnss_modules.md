@@ -1,0 +1,118 @@
+# GNSS modules for balloon tracking
+
+According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of commercial GPS modules stop at altitudes higher than 18000 meters and for speeds higher than 1000 knots (1852 km/h).
+
+## Quectel
+
+### Quectel L80 GPS Module
+* https://www.quectel.com/product/l80.htm
+* https://www.gotronic.fr/art-shield-lora-et-gps-113990254-27806.htm#complte_desc
+* 14 euros chez RS https://fr.rs-online.com/web/p/puces-gps-et-modules-gps/9084085/
+* 7 USD chez Avnet https://www.avnet.com/shop/us/products/quectel-wireless-solutions/l80-m39-3074457345626708837/
+
+### Quectel L76-L GPS Module
+
+    Balloon mode, for high altitude up to 80km
+    Module on Pycom PyTrack
+
+* https://www.quectel.com/product/l76l.htm
+
+## U-Blox
+
+### U-Blox NEO-M8 series
+
+
+* https://www.u-blox.com/en/product/neo-m8-series¨
+* https://www.u-blox.com/en/positioning-chips-and-modules#tab-standard-precision-gnss
+
+#### U-Blox SAM-M8Q
+    up to 50000 m
+    
+* https://www.sparkfun.com/products/15210
+* https://cdn.sparkfun.com/assets/4/e/b/9/f/SAM-M8Q_DataSheet__UBX-16012619_.pdf
+* https://cdn.sparkfun.com/assets/5/d/d/2/3/SAM-M8Q_HardwareIntegrationManual__UBX-16018358_.pdf
+
+### U-Blox NEO-M6 series
+
+#### U-Blox NEO-6M-0-001
+
+#### GY-NEO6MV2
+
+> Note: The GY-NEO6MV2 modules available on Aliexpress require a 5V VCC and baudrate is 9600. 
+
+## ADH
+
+* http://www.adh-tech.com.tw
+
+### ADH GP-635T
+
+* up to 50000 m
+
+* Sparkfun GP-735 https://www.sparkfun.com/products/13670 https://cdn.sparkfun.com/datasheets/GPS/GP-735T-150203.pdf
+* https://www.generationrobots.com/media/GP-635T-121130-datasheet.pdf
+
+## MediaTek
+
+### MediaTek X1110
+
+    80,000m maximum (Balloon mode)
+    AT Command to Enter balloon mode : $PMTK886,3*2B<CR><LF>
+
+* https://cdn.sparkfun.com/assets/parts/1/2/2/8/0/GlobalTop_Titan_X1_Datasheet.pdf
+* https://www.sparkfun.com/products/14414
+* https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide
+
+## STMicroelectronics
+
+### STMicroelectronics Teseo-LIV3F
+Mode ballon ? 
+
+* https://www.st.com/en/positioning/teseo-liv3f.html
+* STEVAL-STRKT01 https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/steval-strkt01.html
+
+## Stoton
+
+### Stoton GN-801
+
+    u-blox 8 UBX-M8030-KT chipset
+    3.3V and 5V
+    baudrate 9600
+    The color of the wires are wrong (red and black) !!!!!
+    
+    
+* http://www.stotoncn.com/gnssmodule/showproduct.php?lang=en&id=42
+* http://www.stotoncn.com/upload/file/201801/1516180733487356.pdf
+
+### Stoton GG-1802
+    
+    UBX-8030-KT chipset
+
+* http://www.stotoncn.com/gnssmodule/showproduct.php?lang=en&id=63
+
+## Globalsat
+
+### Globalsat ET-662
+
+    up to 18000m
+    
+* https://www.avrfreaks.net/sites/default/files/ET-662%20user%20manual%20V2.2.pdf
+
+## Simcom
+
+## Simcom SIM28
+
+    Alimentation en 5V DC sur le platine [Grove GPS](http://wiki.seeedstudio.com/Grove-GPS/)
+    Baudrate 9600 (et non 4800 par défaut)
+    Altitude max 11000 m lors du vol depuis Valence
+
+* https://www.tme.eu/Document/f3c28c977bbaeda48f88a1b8bb1a2a89/SIMCom%20Module%20%20EVB%20Kit.pdf
+* https://www.tme.eu/Document/a5741a672d9b6a08eb0788fdbd1537f4/SIM28.pdf
+* https://simcom.ee/documents/SIM28ML/SIM28ML_Hardware%20Design_V1.01.pdf
+* http://www.vis-plus.ee/pdf/SIMCOM_SIM5350_ATC_EN_V1.02.pdf
+
+## GNSS evaluation software for Windows
+* https://www.u-blox.com/en/product/u-center
+
+![u-center](./images/ublox-center.png)
+![u-center Stoton](./images/ublox-center-stoton.png)
+
