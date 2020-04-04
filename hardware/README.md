@@ -1,7 +1,7 @@
 # OrbiMote :: Hardware  
 
 ## Schematics   
-
+* Done with [Eagle 7.7 Express](https://www.autodesk.com/products/eagle/free-download).
 
 ## Bill of material
 
