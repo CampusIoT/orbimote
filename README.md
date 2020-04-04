@@ -13,6 +13,12 @@ The Orbimote is a LoRa/LoRaWAN endpoint
 ![OrbiMote Schematic](./images/orbimote-design.png)
 ![OrbiMote](./images/orbimote.jpg)
 
+## GNSS additional modules for near-space applications
+
+According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of commercial GPS modules stop at altitudes higher than 18000 meters and for speeds higher than 1000 knots (1852 km/h).
+
+Here is a list of GPS modules : [gnss_modules.md](./gnss_modules.md)
+
 ## License
 TBD
 

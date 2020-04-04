@@ -36,4 +36,4 @@
 
 According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of commercial GPS modules stop at altitudes higher than 18000 meters and for speeds higher than 1000 knots (1852 km/h).
 
-Here is a list of GPS modules : [gnss_modules.md](gnss_modules.md)
+Here is a list of GPS modules : [gnss_modules.md](../gnss_modules.md)
