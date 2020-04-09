@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?><cdtprojectproperties>
+<!-- Automatically generated from make eclipsesym -->
+
+<!--
+Instrucions:
+
+In Eclipse:
+1. Open the project properties, menu Project->Properties
+2. Select C/C++ General->Paths and Symbols
+2a. (optional) Click Restore Defaults to delete any existing macros and include paths
+3. Click Import Settings...
+4. Select this file and press Finish
+5. Rebuild C/C++ index, menu Project->C/C++ Index->Rebuild
+
+-->
+
+<section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.IncludePaths">
+<language name="GNU C">
+<includepath workspace_path="true">/RIOT/core/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/include</includepath>
+<includepath workspace_path="true">/RIOT/sys/include</includepath>
+<includepath workspace_path="true">/RIOT/boards/im880b/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32l1/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include/vendor</includepath>
+<includepath workspace_path="true">/RIOT/sys/libc/include</includepath>
+<includepath workspace_path="true">/Users/donsez/github/campusiot/orbimote/firmware/bin/pkg/im880b/cayenne-lpp</includepath>
+<includepath workspace_path="true">/RIOT/pkg/semtech-loramac/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/mpl3115a2/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/sx127x/include</includepath>
+</language>
+<language name="GNU C++">
+<includepath workspace_path="true">/RIOT/core/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/include</includepath>
+<includepath workspace_path="true">/RIOT/sys/include</includepath>
+<includepath workspace_path="true">/RIOT/boards/im880b/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32l1/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include/vendor</includepath>
+<includepath workspace_path="true">/RIOT/sys/libc/include</includepath>
+<includepath workspace_path="true">/Users/donsez/github/campusiot/orbimote/firmware/bin/pkg/im880b/cayenne-lpp</includepath>
+<includepath workspace_path="true">/RIOT/pkg/semtech-loramac/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/mpl3115a2/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/sx127x/include</includepath>
+</language>
+<language name="Assembly">
+<includepath workspace_path="true">/RIOT/core/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/include</includepath>
+<includepath workspace_path="true">/RIOT/sys/include</includepath>
+<includepath workspace_path="true">/RIOT/boards/im880b/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32l1/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include/vendor</includepath>
+<includepath workspace_path="true">/RIOT/sys/libc/include</includepath>
+<includepath workspace_path="true">/Users/donsez/github/campusiot/orbimote/firmware/bin/pkg/im880b/cayenne-lpp</includepath>
+<includepath workspace_path="true">/RIOT/pkg/semtech-loramac/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/mpl3115a2/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/sx127x/include</includepath>
+</language>
+<language name="C Source File">
+<includepath workspace_path="true">/RIOT/core/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/include</includepath>
+<includepath workspace_path="true">/RIOT/sys/include</includepath>
+<includepath workspace_path="true">/RIOT/boards/im880b/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32l1/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include/vendor</includepath>
+<includepath workspace_path="true">/RIOT/sys/libc/include</includepath>
+<includepath workspace_path="true">/Users/donsez/github/campusiot/orbimote/firmware/bin/pkg/im880b/cayenne-lpp</includepath>
+<includepath workspace_path="true">/RIOT/pkg/semtech-loramac/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/mpl3115a2/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/sx127x/include</includepath>
+</language>
+<language name="C++ Source File">
+<includepath workspace_path="true">/RIOT/core/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/include</includepath>
+<includepath workspace_path="true">/RIOT/sys/include</includepath>
+<includepath workspace_path="true">/RIOT/boards/im880b/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32l1/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include/vendor</includepath>
+<includepath workspace_path="true">/RIOT/sys/libc/include</includepath>
+<includepath workspace_path="true">/Users/donsez/github/campusiot/orbimote/firmware/bin/pkg/im880b/cayenne-lpp</includepath>
+<includepath workspace_path="true">/RIOT/pkg/semtech-loramac/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/mpl3115a2/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/sx127x/include</includepath>
+</language>
+<language name="Assembly Source File">
+<includepath workspace_path="true">/RIOT/core/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/include</includepath>
+<includepath workspace_path="true">/RIOT/sys/include</includepath>
+<includepath workspace_path="true">/RIOT/boards/im880b/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32l1/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/stm32_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include</includepath>
+<includepath workspace_path="true">/RIOT/cpu/cortexm_common/include/vendor</includepath>
+<includepath workspace_path="true">/RIOT/sys/libc/include</includepath>
+<includepath workspace_path="true">/Users/donsez/github/campusiot/orbimote/firmware/bin/pkg/im880b/cayenne-lpp</includepath>
+<includepath workspace_path="true">/RIOT/pkg/semtech-loramac/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/mpl3115a2/include</includepath>
+<includepath workspace_path="true">/RIOT/drivers/sx127x/include</includepath>
+</language>
+</section>
+<section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.Macros">
+<language name="GNU C">
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>FORGE_DEVEUI_APPEUI_APPKEY</name><value>1</value></macro>
+<macro><name>SECRET</name><value>"cafebabe02000001cafebabe02ffffff"</value></macro>
+<macro><name>DEVELHELP</name><value>1</value></macro>
+<macro><name>SX127X_TX_SWITCH</name><value>1</value></macro>
+<macro><name>SX127X_RX_SWITCH</name><value>1</value></macro>
+<macro><name>CPU_FAM_STM32L1</name><value>1</value></macro>
+<macro><name>STM32L151xx</name><value>1</value></macro>
+<macro><name>CPU_LINE_STM32L151xx</name><value>1</value></macro>
+<macro><name>STM32_FLASHSIZE</name><value>131072U</value></macro>
+<macro><name>CPU_MODEL_STM32L151CB</name><value>1</value></macro>
+<macro><name>CPU_ARCH_CORTEX_M3</name><value>1</value></macro>
+<macro><name>RIOT_APPLICATION</name><value>"orbimote"</value></macro>
+<macro><name>BOARD_IM880B</name><value>"im880b"</value></macro>
+<macro><name>RIOT_BOARD</name><value>BOARD_IM880B</value></macro>
+<macro><name>CPU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_CPU</name><value>CPU_STM32L1</value></macro>
+<macro><name>MCU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_MCU</name><value>MCU_STM32L1</value></macro>
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>RIOT_VERSION</name><value>"2020.04-devel-1660-gb535c"</value></macro>
+<macro><name>MODULE_AUTO_INIT</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_XTIMER</name><value>1</value></macro>
+<macro><name>MODULE_BOARD</name><value>1</value></macro>
+<macro><name>MODULE_CAYENNE_LPP</name><value>1</value></macro>
+<macro><name>MODULE_CORE</name><value>1</value></macro>
+<macro><name>MODULE_CORE_INIT</name><value>1</value></macro>
+<macro><name>MODULE_CORE_MSG</name><value>1</value></macro>
+<macro><name>MODULE_CORE_PANIC</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_CPU</name><value>1</value></macro>
+<macro><name>MODULE_DIV</name><value>1</value></macro>
+<macro><name>MODULE_FMT</name><value>1</value></macro>
+<macro><name>MODULE_HASHES</name><value>1</value></macro>
+<macro><name>MODULE_IOLIST</name><value>1</value></macro>
+<macro><name>MODULE_LORA</name><value>1</value></macro>
+<macro><name>MODULE_LUID</name><value>1</value></macro>
+<macro><name>MODULE_MPL3115A2</name><value>1</value></macro>
+<macro><name>MODULE_NETIF</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_NANO</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_SYSCALLS_DEFAULT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_UART</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_UART</name><value>1</value></macro>
+<macro><name>MODULE_PM_LAYERED</name><value>1</value></macro>
+<macro><name>MODULE_PRNG</name><value>1</value></macro>
+<macro><name>MODULE_PRNG_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_ARCH</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CONTRIB</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CRYPTO</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC_REGION</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_RX</name><value>1</value></macro>
+<macro><name>MODULE_STDIO_UART</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_SX1272</name><value>1</value></macro>
+<macro><name>MODULE_SX127X</name><value>1</value></macro>
+<macro><name>MODULE_SYS</name><value>1</value></macro>
+<macro><name>MODULE_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_XTIMER</name><value>1</value></macro>
+</language>
+<language name="GNU C++">
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>FORGE_DEVEUI_APPEUI_APPKEY</name><value>1</value></macro>
+<macro><name>SECRET</name><value>"cafebabe02000001cafebabe02ffffff"</value></macro>
+<macro><name>DEVELHELP</name><value>1</value></macro>
+<macro><name>SX127X_TX_SWITCH</name><value>1</value></macro>
+<macro><name>SX127X_RX_SWITCH</name><value>1</value></macro>
+<macro><name>CPU_FAM_STM32L1</name><value>1</value></macro>
+<macro><name>STM32L151xx</name><value>1</value></macro>
+<macro><name>CPU_LINE_STM32L151xx</name><value>1</value></macro>
+<macro><name>STM32_FLASHSIZE</name><value>131072U</value></macro>
+<macro><name>CPU_MODEL_STM32L151CB</name><value>1</value></macro>
+<macro><name>CPU_ARCH_CORTEX_M3</name><value>1</value></macro>
+<macro><name>RIOT_APPLICATION</name><value>"orbimote"</value></macro>
+<macro><name>BOARD_IM880B</name><value>"im880b"</value></macro>
+<macro><name>RIOT_BOARD</name><value>BOARD_IM880B</value></macro>
+<macro><name>CPU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_CPU</name><value>CPU_STM32L1</value></macro>
+<macro><name>MCU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_MCU</name><value>MCU_STM32L1</value></macro>
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>RIOT_VERSION</name><value>"2020.04-devel-1660-gb535c"</value></macro>
+<macro><name>MODULE_AUTO_INIT</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_XTIMER</name><value>1</value></macro>
+<macro><name>MODULE_BOARD</name><value>1</value></macro>
+<macro><name>MODULE_CAYENNE_LPP</name><value>1</value></macro>
+<macro><name>MODULE_CORE</name><value>1</value></macro>
+<macro><name>MODULE_CORE_INIT</name><value>1</value></macro>
+<macro><name>MODULE_CORE_MSG</name><value>1</value></macro>
+<macro><name>MODULE_CORE_PANIC</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_CPU</name><value>1</value></macro>
+<macro><name>MODULE_DIV</name><value>1</value></macro>
+<macro><name>MODULE_FMT</name><value>1</value></macro>
+<macro><name>MODULE_HASHES</name><value>1</value></macro>
+<macro><name>MODULE_IOLIST</name><value>1</value></macro>
+<macro><name>MODULE_LORA</name><value>1</value></macro>
+<macro><name>MODULE_LUID</name><value>1</value></macro>
+<macro><name>MODULE_MPL3115A2</name><value>1</value></macro>
+<macro><name>MODULE_NETIF</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_NANO</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_SYSCALLS_DEFAULT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_UART</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_UART</name><value>1</value></macro>
+<macro><name>MODULE_PM_LAYERED</name><value>1</value></macro>
+<macro><name>MODULE_PRNG</name><value>1</value></macro>
+<macro><name>MODULE_PRNG_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_ARCH</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CONTRIB</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CRYPTO</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC_REGION</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_RX</name><value>1</value></macro>
+<macro><name>MODULE_STDIO_UART</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_SX1272</name><value>1</value></macro>
+<macro><name>MODULE_SX127X</name><value>1</value></macro>
+<macro><name>MODULE_SYS</name><value>1</value></macro>
+<macro><name>MODULE_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_XTIMER</name><value>1</value></macro>
+</language>
+<language name="Assembly">
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>FORGE_DEVEUI_APPEUI_APPKEY</name><value>1</value></macro>
+<macro><name>SECRET</name><value>"cafebabe02000001cafebabe02ffffff"</value></macro>
+<macro><name>DEVELHELP</name><value>1</value></macro>
+<macro><name>SX127X_TX_SWITCH</name><value>1</value></macro>
+<macro><name>SX127X_RX_SWITCH</name><value>1</value></macro>
+<macro><name>CPU_FAM_STM32L1</name><value>1</value></macro>
+<macro><name>STM32L151xx</name><value>1</value></macro>
+<macro><name>CPU_LINE_STM32L151xx</name><value>1</value></macro>
+<macro><name>STM32_FLASHSIZE</name><value>131072U</value></macro>
+<macro><name>CPU_MODEL_STM32L151CB</name><value>1</value></macro>
+<macro><name>CPU_ARCH_CORTEX_M3</name><value>1</value></macro>
+<macro><name>RIOT_APPLICATION</name><value>"orbimote"</value></macro>
+<macro><name>BOARD_IM880B</name><value>"im880b"</value></macro>
+<macro><name>RIOT_BOARD</name><value>BOARD_IM880B</value></macro>
+<macro><name>CPU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_CPU</name><value>CPU_STM32L1</value></macro>
+<macro><name>MCU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_MCU</name><value>MCU_STM32L1</value></macro>
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>RIOT_VERSION</name><value>"2020.04-devel-1660-gb535c"</value></macro>
+<macro><name>MODULE_AUTO_INIT</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_XTIMER</name><value>1</value></macro>
+<macro><name>MODULE_BOARD</name><value>1</value></macro>
+<macro><name>MODULE_CAYENNE_LPP</name><value>1</value></macro>
+<macro><name>MODULE_CORE</name><value>1</value></macro>
+<macro><name>MODULE_CORE_INIT</name><value>1</value></macro>
+<macro><name>MODULE_CORE_MSG</name><value>1</value></macro>
+<macro><name>MODULE_CORE_PANIC</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_CPU</name><value>1</value></macro>
+<macro><name>MODULE_DIV</name><value>1</value></macro>
+<macro><name>MODULE_FMT</name><value>1</value></macro>
+<macro><name>MODULE_HASHES</name><value>1</value></macro>
+<macro><name>MODULE_IOLIST</name><value>1</value></macro>
+<macro><name>MODULE_LORA</name><value>1</value></macro>
+<macro><name>MODULE_LUID</name><value>1</value></macro>
+<macro><name>MODULE_MPL3115A2</name><value>1</value></macro>
+<macro><name>MODULE_NETIF</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_NANO</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_SYSCALLS_DEFAULT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_UART</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_UART</name><value>1</value></macro>
+<macro><name>MODULE_PM_LAYERED</name><value>1</value></macro>
+<macro><name>MODULE_PRNG</name><value>1</value></macro>
+<macro><name>MODULE_PRNG_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_ARCH</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CONTRIB</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CRYPTO</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC_REGION</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_RX</name><value>1</value></macro>
+<macro><name>MODULE_STDIO_UART</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_SX1272</name><value>1</value></macro>
+<macro><name>MODULE_SX127X</name><value>1</value></macro>
+<macro><name>MODULE_SYS</name><value>1</value></macro>
+<macro><name>MODULE_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_XTIMER</name><value>1</value></macro>
+</language>
+<language name="C Source File">
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>FORGE_DEVEUI_APPEUI_APPKEY</name><value>1</value></macro>
+<macro><name>SECRET</name><value>"cafebabe02000001cafebabe02ffffff"</value></macro>
+<macro><name>DEVELHELP</name><value>1</value></macro>
+<macro><name>SX127X_TX_SWITCH</name><value>1</value></macro>
+<macro><name>SX127X_RX_SWITCH</name><value>1</value></macro>
+<macro><name>CPU_FAM_STM32L1</name><value>1</value></macro>
+<macro><name>STM32L151xx</name><value>1</value></macro>
+<macro><name>CPU_LINE_STM32L151xx</name><value>1</value></macro>
+<macro><name>STM32_FLASHSIZE</name><value>131072U</value></macro>
+<macro><name>CPU_MODEL_STM32L151CB</name><value>1</value></macro>
+<macro><name>CPU_ARCH_CORTEX_M3</name><value>1</value></macro>
+<macro><name>RIOT_APPLICATION</name><value>"orbimote"</value></macro>
+<macro><name>BOARD_IM880B</name><value>"im880b"</value></macro>
+<macro><name>RIOT_BOARD</name><value>BOARD_IM880B</value></macro>
+<macro><name>CPU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_CPU</name><value>CPU_STM32L1</value></macro>
+<macro><name>MCU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_MCU</name><value>MCU_STM32L1</value></macro>
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>RIOT_VERSION</name><value>"2020.04-devel-1660-gb535c"</value></macro>
+<macro><name>MODULE_AUTO_INIT</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_XTIMER</name><value>1</value></macro>
+<macro><name>MODULE_BOARD</name><value>1</value></macro>
+<macro><name>MODULE_CAYENNE_LPP</name><value>1</value></macro>
+<macro><name>MODULE_CORE</name><value>1</value></macro>
+<macro><name>MODULE_CORE_INIT</name><value>1</value></macro>
+<macro><name>MODULE_CORE_MSG</name><value>1</value></macro>
+<macro><name>MODULE_CORE_PANIC</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_CPU</name><value>1</value></macro>
+<macro><name>MODULE_DIV</name><value>1</value></macro>
+<macro><name>MODULE_FMT</name><value>1</value></macro>
+<macro><name>MODULE_HASHES</name><value>1</value></macro>
+<macro><name>MODULE_IOLIST</name><value>1</value></macro>
+<macro><name>MODULE_LORA</name><value>1</value></macro>
+<macro><name>MODULE_LUID</name><value>1</value></macro>
+<macro><name>MODULE_MPL3115A2</name><value>1</value></macro>
+<macro><name>MODULE_NETIF</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_NANO</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_SYSCALLS_DEFAULT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_UART</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_UART</name><value>1</value></macro>
+<macro><name>MODULE_PM_LAYERED</name><value>1</value></macro>
+<macro><name>MODULE_PRNG</name><value>1</value></macro>
+<macro><name>MODULE_PRNG_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_ARCH</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CONTRIB</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CRYPTO</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC_REGION</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_RX</name><value>1</value></macro>
+<macro><name>MODULE_STDIO_UART</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_SX1272</name><value>1</value></macro>
+<macro><name>MODULE_SX127X</name><value>1</value></macro>
+<macro><name>MODULE_SYS</name><value>1</value></macro>
+<macro><name>MODULE_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_XTIMER</name><value>1</value></macro>
+</language>
+<language name="C++ Source File">
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>FORGE_DEVEUI_APPEUI_APPKEY</name><value>1</value></macro>
+<macro><name>SECRET</name><value>"cafebabe02000001cafebabe02ffffff"</value></macro>
+<macro><name>DEVELHELP</name><value>1</value></macro>
+<macro><name>SX127X_TX_SWITCH</name><value>1</value></macro>
+<macro><name>SX127X_RX_SWITCH</name><value>1</value></macro>
+<macro><name>CPU_FAM_STM32L1</name><value>1</value></macro>
+<macro><name>STM32L151xx</name><value>1</value></macro>
+<macro><name>CPU_LINE_STM32L151xx</name><value>1</value></macro>
+<macro><name>STM32_FLASHSIZE</name><value>131072U</value></macro>
+<macro><name>CPU_MODEL_STM32L151CB</name><value>1</value></macro>
+<macro><name>CPU_ARCH_CORTEX_M3</name><value>1</value></macro>
+<macro><name>RIOT_APPLICATION</name><value>"orbimote"</value></macro>
+<macro><name>BOARD_IM880B</name><value>"im880b"</value></macro>
+<macro><name>RIOT_BOARD</name><value>BOARD_IM880B</value></macro>
+<macro><name>CPU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_CPU</name><value>CPU_STM32L1</value></macro>
+<macro><name>MCU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_MCU</name><value>MCU_STM32L1</value></macro>
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>RIOT_VERSION</name><value>"2020.04-devel-1660-gb535c"</value></macro>
+<macro><name>MODULE_AUTO_INIT</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_XTIMER</name><value>1</value></macro>
+<macro><name>MODULE_BOARD</name><value>1</value></macro>
+<macro><name>MODULE_CAYENNE_LPP</name><value>1</value></macro>
+<macro><name>MODULE_CORE</name><value>1</value></macro>
+<macro><name>MODULE_CORE_INIT</name><value>1</value></macro>
+<macro><name>MODULE_CORE_MSG</name><value>1</value></macro>
+<macro><name>MODULE_CORE_PANIC</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_CPU</name><value>1</value></macro>
+<macro><name>MODULE_DIV</name><value>1</value></macro>
+<macro><name>MODULE_FMT</name><value>1</value></macro>
+<macro><name>MODULE_HASHES</name><value>1</value></macro>
+<macro><name>MODULE_IOLIST</name><value>1</value></macro>
+<macro><name>MODULE_LORA</name><value>1</value></macro>
+<macro><name>MODULE_LUID</name><value>1</value></macro>
+<macro><name>MODULE_MPL3115A2</name><value>1</value></macro>
+<macro><name>MODULE_NETIF</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_NANO</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_SYSCALLS_DEFAULT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_UART</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_UART</name><value>1</value></macro>
+<macro><name>MODULE_PM_LAYERED</name><value>1</value></macro>
+<macro><name>MODULE_PRNG</name><value>1</value></macro>
+<macro><name>MODULE_PRNG_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_ARCH</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CONTRIB</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CRYPTO</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC_REGION</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_RX</name><value>1</value></macro>
+<macro><name>MODULE_STDIO_UART</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_SX1272</name><value>1</value></macro>
+<macro><name>MODULE_SX127X</name><value>1</value></macro>
+<macro><name>MODULE_SYS</name><value>1</value></macro>
+<macro><name>MODULE_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_XTIMER</name><value>1</value></macro>
+</language>
+<language name="Assembly Source File">
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>FORGE_DEVEUI_APPEUI_APPKEY</name><value>1</value></macro>
+<macro><name>SECRET</name><value>"cafebabe02000001cafebabe02ffffff"</value></macro>
+<macro><name>DEVELHELP</name><value>1</value></macro>
+<macro><name>SX127X_TX_SWITCH</name><value>1</value></macro>
+<macro><name>SX127X_RX_SWITCH</name><value>1</value></macro>
+<macro><name>CPU_FAM_STM32L1</name><value>1</value></macro>
+<macro><name>STM32L151xx</name><value>1</value></macro>
+<macro><name>CPU_LINE_STM32L151xx</name><value>1</value></macro>
+<macro><name>STM32_FLASHSIZE</name><value>131072U</value></macro>
+<macro><name>CPU_MODEL_STM32L151CB</name><value>1</value></macro>
+<macro><name>CPU_ARCH_CORTEX_M3</name><value>1</value></macro>
+<macro><name>RIOT_APPLICATION</name><value>"orbimote"</value></macro>
+<macro><name>BOARD_IM880B</name><value>"im880b"</value></macro>
+<macro><name>RIOT_BOARD</name><value>BOARD_IM880B</value></macro>
+<macro><name>CPU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_CPU</name><value>CPU_STM32L1</value></macro>
+<macro><name>MCU_STM32L1</name><value>"stm32l1"</value></macro>
+<macro><name>RIOT_MCU</name><value>MCU_STM32L1</value></macro>
+<macro><name>REGION_EU868</name><value>1</value></macro>
+<macro><name>LORAMAC_ACTIVE_REGION</name><value>LORAMAC_REGION_EU868</value></macro>
+<macro><name>RIOT_VERSION</name><value>"2020.04-devel-1660-gb535c"</value></macro>
+<macro><name>MODULE_AUTO_INIT</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_AUTO_INIT_XTIMER</name><value>1</value></macro>
+<macro><name>MODULE_BOARD</name><value>1</value></macro>
+<macro><name>MODULE_CAYENNE_LPP</name><value>1</value></macro>
+<macro><name>MODULE_CORE</name><value>1</value></macro>
+<macro><name>MODULE_CORE_INIT</name><value>1</value></macro>
+<macro><name>MODULE_CORE_MSG</name><value>1</value></macro>
+<macro><name>MODULE_CORE_PANIC</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_CORTEXM_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_CPU</name><value>1</value></macro>
+<macro><name>MODULE_DIV</name><value>1</value></macro>
+<macro><name>MODULE_FMT</name><value>1</value></macro>
+<macro><name>MODULE_HASHES</name><value>1</value></macro>
+<macro><name>MODULE_IOLIST</name><value>1</value></macro>
+<macro><name>MODULE_LORA</name><value>1</value></macro>
+<macro><name>MODULE_LUID</name><value>1</value></macro>
+<macro><name>MODULE_MPL3115A2</name><value>1</value></macro>
+<macro><name>MODULE_NETIF</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_NANO</name><value>1</value></macro>
+<macro><name>MODULE_NEWLIB_SYSCALLS_DEFAULT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_CPUID</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_GPIO_IRQ</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_I2C</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_INIT</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_INIT_UART</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_PM</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_RTC</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_SPI</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_TIMER</name><value>1</value></macro>
+<macro><name>MODULE_PERIPH_UART</name><value>1</value></macro>
+<macro><name>MODULE_PM_LAYERED</name><value>1</value></macro>
+<macro><name>MODULE_PRNG</name><value>1</value></macro>
+<macro><name>MODULE_PRNG_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_RANDOM</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_ARCH</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CONTRIB</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_CRYPTO</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_MAC_REGION</name><value>1</value></macro>
+<macro><name>MODULE_SEMTECH_LORAMAC_RX</name><value>1</value></macro>
+<macro><name>MODULE_STDIO_UART</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON</name><value>1</value></macro>
+<macro><name>MODULE_STM32_COMMON_PERIPH</name><value>1</value></macro>
+<macro><name>MODULE_SX1272</name><value>1</value></macro>
+<macro><name>MODULE_SX127X</name><value>1</value></macro>
+<macro><name>MODULE_SYS</name><value>1</value></macro>
+<macro><name>MODULE_TINYMT32</name><value>1</value></macro>
+<macro><name>MODULE_XTIMER</name><value>1</value></macro>
+</language>
+</section>
+</cdtprojectproperties>
