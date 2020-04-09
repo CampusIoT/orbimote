@@ -30,7 +30,7 @@ Build the firmware
 export RIOT_BASE=~/github/RIOT-OS/RIOT
 make binfile
 ```
-Connect the JP1 board pins to the STLink according this wiring and then flash the firmware
+Connect the JP1 board pins to the STLink according the [JTAG-SWD wiring](hardware/README.md#header-for-jtagswd) and then flash the firmware
 ```bash
 export RIOT_BASE=~/github/RIOT-OS/RIOT
 make flash
