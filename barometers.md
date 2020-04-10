@@ -26,6 +26,7 @@ Typical values ([From](https://www.engineeringtoolbox.com/air-altitude-pressure-
 | [STM LPS22HB](https://www.st.com/en/mems-and-sensors/lps22hb.html) | Pressure | 260 to 1260 hPa (0.01 hPa RMS) | TBC | TBC | Active |
 | [Murata SCP1000-D01](https://www.sparkfun.com/products/retired/8161) | Pressure | 300 hPa to 1200 hPa, -20C to 70C | TBC | TBC | Obsolete |
 | [Murata ZPA2326-0311A-R](https://www.murata.com/en-eu/products/productdetail?partno=ZPA2326-0311A-R) | Pressure | 800 to 1100hPa (0.01 hPa) | TBC | TBC | Active |
+| [Amphenol Pressure Sensors](https://www.amphenol-sensors.com/en/mems-pressure-sensors) | Pressure | TBC| TBC | TBC | Active |
 
 
 
