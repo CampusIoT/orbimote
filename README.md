@@ -19,6 +19,10 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 
 Here is a list of GPS modules : [gnss_modules.md](./gnss_modules.md)
 
+## Barometers for near-space applications
+
+Here is a list of barometer components and modules : [barometers.md](./barometers.md)
+
 ## Flights
 
 ### 2029
