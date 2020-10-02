@@ -25,9 +25,11 @@ Here is a list of barometer components and modules : [barometers.md](./barometer
 
 ## Flights
 
-### 2029
-
+### 2019
+Valence, May 2019.
+![Valence](./images/valence-balloon-liveobject+ttn-2019.png)
 ### 2020
+Aire-sur-l'Adour, September 2020.
 ![Aire-sur-l'Adour](./images/cnes-balloon-liveobject-2020.png)
 
 ## License
