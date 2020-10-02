@@ -19,6 +19,13 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 
 Here is a list of GPS modules : [gnss_modules.md](./gnss_modules.md)
 
+## Flights
+
+### 2029
+
+### 2020
+![Aire-sur-l'Adour](./images/cnes-balloon-liveobject-2020.png)
+
 ## License
 TBD
 
