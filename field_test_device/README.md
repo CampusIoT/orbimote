@@ -123,11 +123,11 @@ Downlink payload can be used for
 For CampusIoT:
 ```bash
 ORGID=<YOUR_ORG_ID>
-BROKER=lora.campusiot.imag.fr
+BROKER=lns.campusiot.imag.fr
 MQTTUSER=org-$ORGID
 MQTTPASSWORD=<YOUR_ORG_TOKEN>
 applicationID=1
-devEUI=1234567890abcdef
+devEUI=33323431007f1234
 ```
 
 ### sending an ASCII message
@@ -192,6 +192,7 @@ RTC time fixed  :   2020-05-24 16:08:43
 sent_buffer:                                                                                              
 ```
 
+> Remark: Chirpstack implements the [App Clock Sync Specification](https://lora-alliance.org/resource-hub/lorawanr-application-layer-clock-synchronization-specification-v100). The synchronization is done at the LNS level.
 
 ## Annexs
 
@@ -224,5 +225,5 @@ Connector X2
 * Downlink for configuring the DRPWSZ_SEQUENCE
 * Downlink for configuring Confirmation
 * Downlink for rejoining (see Certiification Test)
-* Downlink for setting ADR (see Certiification Test)
+* Downlink for setting ADR (see Certification Test)
  
