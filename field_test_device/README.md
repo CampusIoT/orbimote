@@ -29,6 +29,7 @@ The RTC of the board can be synchronized according to the [App Clock Sync Specif
 	int24 : longitude
 	int16 : altitude
 
+> The paylaod will include in a future version the following fields : downlink message counter (uint16_t), last downlink fCnt (uint16_t), last downlink RSSI (uint8_t), last downlink LSNR (int8_t) and GPIO_IN bitfield (uint8_t)
 
 ## Libraries
 
