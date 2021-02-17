@@ -12,7 +12,7 @@ a DS75LX temperature sensor. A NMEA0183 GNSS module can be added on the pin xx o
 
 The program sends periodically LoRaWAN frames at various datarate and tx power.
 
-If a GPS is plugged onto the board, the postion is sent into each LoRaWAN frames.
+If a NMEA0183 GNSS module is plugged onto the board, the postion is sent into each LoRaWAN frames. See the list of [NMEA0183 GNSS module](../gnss_modules.md).
 
 Uplink frames can be confirmed or unconfirmed by the network server.
 
