@@ -62,14 +62,6 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 * https://www.sparkfun.com/products/14414
 * https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide
 
-## STMicroelectronics
-
-### STMicroelectronics Teseo-LIV3F
-Mode ballon ? 
-
-* https://www.st.com/en/positioning/teseo-liv3f.html
-* STEVAL-STRKT01 https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/steval-strkt01.html
-
 ## Stoton
 
 ### Stoton GN-801
@@ -117,9 +109,12 @@ Mode ballon ?
     multiple constellations (GPS/Galileo/Glonass/BeiDou/QZSS).
     I2C, UART
     NMEA protocol
+    mode ballon ?
 
 * [Teseo-LIV3F Tiny GNSS module ](https://www.st.com/content/st_com/en/products/positioning/gnss-modules/teseo-liv3f.html)
 * [X-NUCLEO-GNSS1A1 GNSS expansion board based on Teseo-LIV3F module for STM32 Nucleo](https://www.st.com/en/ecosystems/x-nucleo-gnss1a1.html)
+* STEVAL-STRKT01 https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/steval-strkt01.html
+* https://stm32python.gitlab.io/fr/docs/Stm32duino/exercices/x-nucleo-gnss1a1
 
 ## GNSS evaluation software for Windows
 * https://www.u-blox.com/en/product/u-center
