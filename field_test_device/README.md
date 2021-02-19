@@ -219,13 +219,27 @@ Connector X2
 | Pin 5: NRST (RESET of target STM32)      | 5  | Yellow     |
 
 ## TODO
-* Add a downlink message counter (uint16_t), the last downlink fCnt (uint16_t), last downlink RSSI (uint8_t), last downlink LSNR (int8_t) and GPIO_IN bitfield (uint8_t)  into the uplink payload
-* Downlink for configuring TxPeriod
-* Downlink for reading GPIO_IN
-* Downlink for setting GPIO_OUT (set or clear) for actuator control
-* Downlink for configuring the DRPWSZ_SEQUENCE
-* Downlink for configuring Confirmation
-* Downlink for rejoining (see Certification Test)
-* Downlink for setting ADR (see Certification Test)
-* Class C endpoint ?
+* [ ] Add a downlink message counter (uint16_t), the last downlink fCnt (uint16_t), last downlink RSSI (uint8_t), last downlink LSNR (int8_t) and GPIO_IN bitfield (uint8_t)  into the uplink payload
+* [x] Downlink for configuring TxPeriod
+* [ ] Downlink for reading GPIO_IN
+* [ ] Downlink for setting GPIO_OUT (set or clear) for actuator control
+* [ ] Downlink for configuring the DRPWSZ_SEQUENCE
+* [ ] Downlink for configuring Confirmation
+* [ ] Downlink for rejoining (see Certification Test)
+* [ ] Downlink for setting ADR (see Certification Test)
+* [ ] Class C endpoint ?
  
+## Base64 utils
+Encode base64
+```bash
+echo 'Hello CampusIoT' | base64
+echo '414243442045464748' | xxd -r -p | base64
+```
+
+Decode base64
+```bash
+echo SGVsbG8gQ2FtcHVzSW9UCg== | base64 -d
+echo QUJDRCBFRkdI | base64 -d
+```
+
+
