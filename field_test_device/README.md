@@ -1,13 +1,5 @@
 # Field Test Device
 
-## Default board
-The IMST iM880a board is a simple prototyping board with an IMST IMST iM880a LoRa module 
-a DS75LX temperature sensor. A NMEA0183 GNSS module can be added on the pin xx of connector X2
-
-<p align="center">
-<img src="images/im880a-ds75lx.jpg" alt="iM880a-DS75LX" width="75%"/>
-</p>
-
 ## Field Test Device
 
 The program sends periodically LoRaWAN frames at various datarate and tx power.
@@ -31,10 +23,25 @@ The RTC of the board can be synchronized according to the [App Clock Sync Specif
 
 > The paylaod will include in a future version the following fields : downlink message counter (uint16_t), last downlink fCnt (uint16_t), last downlink RSSI (uint8_t), last downlink LSNR (int8_t) and GPIO_IN bitfield (uint8_t)
 
-## Libraries
+
+## Boards
 
 Board:
-* [boards/im880b](https://github.com/RIOT-OS/RIOT/tree/master/boards/im880b)
+* [x] [boards/im880b](https://github.com/RIOT-OS/RIOT/tree/master/boards/im880b)
+* [x] [nucleo-f446re](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f446re) + [P-NUCLEO-LRWAN1](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan1.html)
+* [x] [nucleo-f446re](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f446re) + [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/) for eu433 and eu868
+* [ ] [boards/b-l072z-lrwan1](https://github.com/RIOT-OS/RIOT/tree/master/boards/b-l072z-lrwan1)
+* [ ] [STM32WL55](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-stm32wl55)
+
+### Default board
+The IMST iM880a board is a simple prototyping board with an IMST IMST iM880a LoRa module 
+a DS75LX temperature sensor. A [NMEA0183 GNSS module](../gnss_modules.md) can be added on the pin xx of connector X2
+
+<p align="center">
+<img src="images/im880a-ds75lx.jpg" alt="iM880a-DS75LX" width="75%"/>
+</p>
+
+## Libraries
 
 Drivers:
 * [drivers/ds75lx](https://github.com/RIOT-OS/RIOT/tree/master/drivers/ds75lx)
@@ -197,27 +204,6 @@ sent_buffer:
 
 ## Annexs
 
-### IMST iM880a DS75LX Connectors
-
-![Connector X1](https://github.com/CampusIoT/tutorial/blob/master/im880a/figs/CH340G-to-X2.png)
-
-Connector X1
-
-![Connector X2](https://raw.githubusercontent.com/CampusIoT/tutorial/master/im880a/figs/JTAG-to-X1.png)
-
-Connector X2
-
-> Note: if you do not have an ST-Link v2 flasher, you can use the ST-Link part of a Nucleo board and connect the first 5 pins of the [CN4 SWD connector](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf) to the X1 connector of the IMST im880 board:
-
-
-|Nucleo CN4 SWD                            | IMST X1 | Color |
-|------------------------------------------|----|------------|
-| Pin 1: VDD_TARGET (VDD from application) | 15 | Red        |
-| Pin 2: SWCLK (clock)                     | 1  | Brown      |
-| Pin 3: GND (ground)                      | 16 | Black/Blue |
-| Pin 4: SWDIO (SWD data input/output)     | 2  | Green      |
-| Pin 5: NRST (RESET of target STM32)      | 5  | Yellow     |
-
 ## TODO
 * [ ] Add a downlink message counter (uint16_t), the last downlink fCnt (uint16_t), last downlink RSSI (uint8_t), last downlink LSNR (int8_t) and GPIO_IN bitfield (uint8_t)  into the uplink payload
 * [x] Downlink for configuring TxPeriod
@@ -241,5 +227,31 @@ Decode base64
 echo SGVsbG8gQ2FtcHVzSW9UCg== | base64 -d
 echo QUJDRCBFRkdI | base64 -d
 ```
+
+### IMST iM880a DS75LX Connectors
+
+<p align="center">
+<img src="images/im880a-ds75lx.jpg" alt="iM880a-DS75LX" width="75%"/>
+</p>
+
+![Connector X1](https://github.com/CampusIoT/tutorial/blob/master/im880a/figs/CH340G-to-X2.png)
+
+Connector X1
+
+![Connector X2](https://raw.githubusercontent.com/CampusIoT/tutorial/master/im880a/figs/JTAG-to-X1.png)
+
+Connector X2
+
+> Note: if you do not have an ST-Link v2 flasher, you can use the ST-Link part of a Nucleo board and connect the first 5 pins of the [CN4 SWD connector](https://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf) to the X1 connector of the IMST im880 board:
+
+
+|Nucleo CN4 SWD                            | IMST X1 | Color |
+|------------------------------------------|----|------------|
+| Pin 1: VDD_TARGET (VDD from application) | 15 | Red        |
+| Pin 2: SWCLK (clock)                     | 1  | Brown      |
+| Pin 3: GND (ground)                      | 16 | Black/Blue |
+| Pin 4: SWDIO (SWD data input/output)     | 2  | Green      |
+| Pin 5: NRST (RESET of target STM32)      | 5  | Yellow     |
+
 
 
