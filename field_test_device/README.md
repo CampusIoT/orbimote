@@ -35,6 +35,7 @@ Board:
 * [ ] [ESP32 Heltec LoRa](https://github.com/RIOT-OS/RIOT/tree/master/boards/esp32-heltec-lora32-v2)
 * [ ] [ESP32 TTGO Beam](https://github.com/RIOT-OS/RIOT/blob/master/boards/esp32-ttgo-t-beam)
 * [ ] [Bluepill](https://github.com/RIOT-OS/RIOT/tree/master/boards/bluepill-stm32f030c8) + [RFM9x](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/arduino-wiring)
+* [ ] [Generic Node](https://www.genericnode.com/)
 
 ### Default board
 The IMST iM880a board is a simple prototyping board with an IMST IMST iM880a LoRa module 
