@@ -36,10 +36,11 @@ Board:
 * [ ] [ESP32 TTGO Beam](https://github.com/RIOT-OS/RIOT/blob/master/boards/esp32-ttgo-t-beam)
 * [ ] [Bluepill](https://github.com/RIOT-OS/RIOT/tree/master/boards/bluepill-stm32f030c8) + [RFM9x](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/arduino-wiring)
 * [ ] [Generic Node](https://www.genericnode.com/)
+* [ ] all boards with [Microchip RN2483 module](https://github.com/RIOT-OS/RIOT/tree/master/drivers/rn2xx3)
 
 ### Default board
 The IMST iM880a board is a simple prototyping board with an IMST IMST iM880a LoRa module 
-a DS75LX temperature sensor. A [NMEA0183 GNSS module](../gnss_modules.md) can be added on the pin xx of connector X2
+a DS75LX temperature sensor. The TX pin of a [NMEA0183 GNSS module](../gnss_modules.md) can be plugged on the pin 10 (Rx) of connector X2 (with 3V3 on pin 11 and GND on pin 12).
 
 <p align="center">
 <img src="images/im880a-ds75lx.jpg" alt="iM880a-DS75LX" width="75%"/>
@@ -47,8 +48,10 @@ a DS75LX temperature sensor. A [NMEA0183 GNSS module](../gnss_modules.md) can be
 
 ## Libraries
 
-Drivers:
-* [drivers/ds75lx](https://github.com/RIOT-OS/RIOT/tree/master/drivers/ds75lx)
+Packages & Drivers:
+* [semtech-loramac](https://github.com/RIOT-OS/RIOT/tree/master/pkg/semtech-loramac)
+* [cayenne-lpp](https://github.com/RIOT-OS/RIOT/tree/master/pkg/cayenne-lpp)
+* [ds75lx](https://github.com/RIOT-OS/RIOT/tree/master/drivers/ds75lx)
 
 GPS modules:
 * [See notes](../gnss_modules.md)
