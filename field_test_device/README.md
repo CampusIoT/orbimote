@@ -36,6 +36,7 @@ Board:
 * [ ] [ESP32 TTGO Beam](https://github.com/RIOT-OS/RIOT/blob/master/boards/esp32-ttgo-t-beam)
 * [ ] [Bluepill](https://github.com/RIOT-OS/RIOT/tree/master/boards/bluepill-stm32f030c8) + [RFM9x](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/arduino-wiring)
 * [ ] [Generic Node](https://www.genericnode.com/)
+* [ ] LilyGo (SX1262)
 * [ ] all boards with [Microchip RN2483 module](https://github.com/RIOT-OS/RIOT/tree/master/drivers/rn2xx3)
 
 ### Default board
