@@ -28,7 +28,7 @@ The RTC of the board can be synchronized according to the [App Clock Sync Specif
 
 Board:
 * [x] [boards/im880b](https://github.com/RIOT-OS/RIOT/tree/master/boards/im880b)
-* [x] [OrbiMote (im880a)](..)
+* [x] [OrbiMote (im880a)](https://github.com/CampusIoT/orbimote)
 * [x] [nucleo-f446re](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f446re) + [P-NUCLEO-LRWAN1](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan1.html)
 * [x] [nucleo-f446re](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f446re) + [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/) for eu433 and eu868
 * [ ] [boards/b-l072z-lrwan1](https://github.com/RIOT-OS/RIOT/tree/master/boards/b-l072z-lrwan1)
