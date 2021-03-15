@@ -28,6 +28,7 @@ The RTC of the board can be synchronized according to the [App Clock Sync Specif
 
 Board:
 * [x] [boards/im880b](https://github.com/RIOT-OS/RIOT/tree/master/boards/im880b)
+* [x] [OrbiMote (im880a)](..)
 * [x] [nucleo-f446re](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f446re) + [P-NUCLEO-LRWAN1](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan1.html)
 * [x] [nucleo-f446re](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f446re) + [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/) for eu433 and eu868
 * [ ] [boards/b-l072z-lrwan1](https://github.com/RIOT-OS/RIOT/tree/master/boards/b-l072z-lrwan1)
@@ -192,7 +193,7 @@ PAYLOAD=FE0BF6FB4B
 mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": '$PORT',"data":"/gv2+0s="}'
 ```
 
-> The time is the number of seconds since 01/01/1980 (GPS start time). It is unsigned 32 bit-long integer (big endian) LSBF 
+> The time is the number of seconds since 06/01/1980 (GPS start time). It is unsigned 32 bit-long integer (big endian) LSBF 
 
 The output on the console is:
 ```bash
