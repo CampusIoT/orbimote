@@ -17,15 +17,21 @@ all:
 
 ifeq ($(DS75LX),1)
 USEMODULE += ds75lx
-CFLAGS += -DDS75LX
+CFLAGS += -DDS75LX=1
 endif
 
 ifeq ($(GPS),1)
-CFLAGS += -DGPS
+CFLAGS += -DGPS=1
+# define the GNSS module baudrate
+CFLAGS += -DSTD_BAUDRATE=9600
 endif
+
+FEATURES_REQUIRED += periph_rtc
+FEATURES_REQUIRED += periph_wdt
 
 USEMODULE += fmt
 USEMODULE += xtimer
+USEMODULE += hashes
 
 # Default radio driver is Semtech SX1272 (used by the IMST iM880ab boards)
 DRIVER ?= sx1272
@@ -63,7 +69,7 @@ ifndef TXCNF
 TXCNF ?= false
 endif
 
-ifndef DEVEUI
+ifndef SECRET
 # SECRET should be changed and kept secret
 SECRET ?= cafebabe02000001cafebabe02ffffff
 endif
@@ -72,19 +78,17 @@ endif
 ADR_ON ?= false
 
 MIN_PORT ?= 1
-MAX_PORT ?= 100
+MAX_PORT ?= 170
 
 ifndef CampusIoT
 OPERATOR ?= CampusIoT
 endif
 
-FEATURES_REQUIRED += periph_rtc
-
-USEMODULE += hashes
 
 DEVELHELP ?= 1
 
 CFLAGS += -DREGION_$(REGION)
+CFLAGS += -DLORAMAC_REGION_STR=\"$(REGION)\"
 #CFLAGS += -DLORAMAC_ACTIVE_REGION=LORAMAC_REGION_$(REGION)
 CFLAGS += -DDRPWSZ_SEQUENCE=$(DRPWSZ_SEQUENCE)
 CFLAGS += -DTXPERIOD=$(TXPERIOD)
