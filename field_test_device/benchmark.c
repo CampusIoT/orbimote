@@ -9,6 +9,8 @@
 #include "xtimer.h"
 #include <time.h>
 
+#include <string.h>
+
 #include "net/loramac.h"
 #include "semtech_loramac.h"
 #include "loramac_utils.h"
@@ -27,6 +29,10 @@ static uint8_t payload[PAYLOAD_LEN];
 // Encode message data to the payload.
 unsigned int encode_benchmark(uint8_t *payload, unsigned int len, uint8_t power, uint8_t dr)
 {
+
+	// reset the payload
+	memset(payload,0,PAYLOAD_LEN);
+
 	if(len < sizeof(2 * sizeof(uint8_t))) {
 		return 0;
 	}
@@ -74,7 +80,6 @@ void benchmark_start(semtech_loramac_t *loramac, struct benchmark_t benchmark, u
             size = benchmark.drpwsz_sequence[3*i+2];
 
         	DEBUG("[ftd] Send @ port=%d dr=%d txpower=%d size=%d\n", port, dr, power, size);
-
 
         	unsigned int len = encode_benchmark(payload, size, power, dr);
 
