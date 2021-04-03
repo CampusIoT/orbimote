@@ -23,7 +23,10 @@ This project is under the MIT license
 
 // UART configuration.
 #define STD_DEV      UART_DEV(0)
+
+#ifndef STD_BAUDRATE
 #define STD_BAUDRATE 9600
+#endif
 
 // Debug a GPS data.
 #define DEBUG(...) if (ENABLE_DEBUG) printf(__VA_ARGS__)
