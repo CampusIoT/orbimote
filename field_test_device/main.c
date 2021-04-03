@@ -31,6 +31,7 @@
 #include "loramac_utils.h"
 
 #include "git_utils.h"
+#include "wdt_utils.h"
 
 
 #ifdef DS75LX
@@ -111,7 +112,13 @@ static void init_sensors(void){
 
     uint8_t port = PORT_UP_DATA;
 
+#ifdef GPS
+    DEBUG("[gps] GPS is enabled (baudrate=%d)\n",STD_BAUDRATE);
+#endif
+
 #ifdef DS75LX
+    DEBUG("[ds75lx] DS75LX sensor is enabled\n");
+
     int result = ds75lx_init(&ds75lx, &ds75lx_params[0]);
     if (result != DS75LX_OK)
     {
@@ -256,12 +263,30 @@ static void *receiver(void *arg)
     return NULL;
 }
 
+static void loramac_info(void) {
+    DEBUG("[mac] Region is " LORAMAC_REGION_STR "\n");
+#if EU868_DUTY_CYCLE_ENABLED == 0
+    DEBUG("[mac] duty cycle is disabled\n");
+#else
+    DEBUG("[mac] duty cycle is enabled\n");
+#endif
+    DEBUG("[info] Operator: %s\n", OPERATOR);
+}
+
+
+static char* wdt_cmdline[] = {"wdt","start"};
+
 int main(void)
 {
 
 	git_cmd(0, NULL);
+	wdt_cmd(2, wdt_cmdline);
+
 
     app_clock_print_rtc();
+
+
+    loramac_info();
 
     /* initialize the sensors */
     init_sensors();
@@ -269,7 +294,6 @@ int main(void)
     /* initialize the loramac stack */
     semtech_loramac_init(&loramac);
 
-    DEBUG("[info] Operator: %s\n", OPERATOR);
 
 
 #ifdef OTAA
@@ -322,6 +346,8 @@ int main(void)
 	random_init_by_array((uint32_t*)appskey, LORAMAC_APPSKEY_LEN/4);
 
 #endif
+
+
 
     /* start the receiver thread */
     thread_create(_receiver_stack, sizeof(_receiver_stack),
