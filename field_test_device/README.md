@@ -20,15 +20,17 @@ The RTC of the board can be synchronized according to the [App Clock Sync Specif
 
 ## Payload format
 
-	fPort : 2 to 99
+	fPort : 2 to 170
 	
-	uint8 : txpower (2,5,8,11,14)
+	uint8 : txpower (2,5,8,11,14) in dBm
 	uint8 : datarate (0,1,2,3,4,5)
 	int16 : temperature in 0.01 °C
 	int24 : latitude
 	int24 : longitude
 	int16 : altitude
 
+TODO 
+* [ ] add FCnt, RSSI, LSNR of the last downlink
 
 ## Libraries
 
@@ -66,11 +68,22 @@ make flash-only
 ```
 
 
+## Enable/Disable the GNSS module
+
+Edit Makefile or overload GPS and STD_BAUDRATE default values 
+```bash
+GPS=0 make
+GPS=1 STD_BAUDRATE=9600 make
+GPS=1 STD_BAUDRATE=56700 make
+```
+
+> if GPS is enabled, the console baudrate is 9600 b/s and not by default 115200 b/s.
+
 ## Enable/Disable the region duty cycle
 
 The region duty cycle can be enabled or disabled in the region file in `bin/pkg/im880b/semtech-loramac/src/mac/region`.
 
-For instance, `RIOT-OS/RIOT/build/pkg/semtech-loramac/src/mac/region/RegionEU868.h` for region `EU868`
+For instance, `~/github/RIOT-OS/RIOT/build/pkg/semtech-loramac/src/mac/region/RegionEU868.h` for region `EU868`
 
 Enable region duty cycle
 ```c
@@ -84,6 +97,8 @@ Disable region duty cycle
 
 ## Console
 Connect the board TX pin to USBSerial port and then configure and start `minicom` or `Pyterm`.
+
+> if GPS is enabled, the baudrate is 9600 b/s. Else the baudrate is 115200 b/s.
 
 ```bash
 ll /dev/tty.*
@@ -194,7 +209,7 @@ sent_buffer:
 
 > Remark: Chirpstack implements the [App Clock Sync Specification](https://lora-alliance.org/resource-hub/lorawanr-application-layer-clock-synchronization-specification-v100). The synchronization is done at the LNS level.
 
-## Annexs
+## Annexes
 
 ### IMST iM880a DS75LX Connectors
 
