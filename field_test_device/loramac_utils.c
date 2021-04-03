@@ -33,6 +33,13 @@
 
 #include "hashes/sha1.h"
 
+#include "xtimer.h"
+
+
+#ifndef RETRYTIME_PERCENT
+#define RETRYTIME_PERCENT (25U)
+#endif
+
 // TODO print_loramac(semtech_loramac_t *loramac)
 
 void printf_ba(const uint8_t* ba, size_t len) {
@@ -108,7 +115,7 @@ uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDa
             /* double nextRetryTime in order to save the battery */
             if (nextRetryTime < maxNextRetryTime)
             {
-                nextRetryTime *= 2;
+                nextRetryTime += (nextRetryTime * RETRYTIME_PERCENT) / 100;
             }
             else
             {
@@ -156,7 +163,7 @@ uint8_t loramac_utils_abp_join_retry_loop(semtech_loramac_t *loramac, uint8_t in
             /* double nextRetryTime in order to save the battery */
             if (nextRetryTime < maxNextRetryTime)
             {
-                nextRetryTime *= 2;
+                nextRetryTime += (nextRetryTime * RETRYTIME_PERCENT) / 100;
             }
             else
             {
