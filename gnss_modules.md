@@ -62,14 +62,6 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 * https://www.sparkfun.com/products/14414
 * https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide
 
-## STMicroelectronics
-
-### STMicroelectronics Teseo-LIV3F
-Mode ballon ? 
-
-* https://www.st.com/en/positioning/teseo-liv3f.html
-* STEVAL-STRKT01 https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/steval-strkt01.html
-
 ## Stoton
 
 ### Stoton GN-801
@@ -99,7 +91,7 @@ Mode ballon ?
 
 ## Simcom
 
-## Simcom SIM28
+### Simcom SIM28
 
     Alimentation en 5V DC sur le platine [Grove GPS](http://wiki.seeedstudio.com/Grove-GPS/)
     Baudrate 9600 (et non 4800 par défaut)
@@ -109,6 +101,20 @@ Mode ballon ?
 * https://www.tme.eu/Document/a5741a672d9b6a08eb0788fdbd1537f4/SIM28.pdf
 * https://simcom.ee/documents/SIM28ML/SIM28ML_Hardware%20Design_V1.01.pdf
 * http://www.vis-plus.ee/pdf/SIMCOM_SIM5350_ATC_EN_V1.02.pdf
+
+## ST Microelectronics
+
+### ST Teseo-LIV3F
+
+    multiple constellations (GPS/Galileo/Glonass/BeiDou/QZSS).
+    I2C, UART
+    NMEA protocol
+    mode ballon ?
+
+* [Teseo-LIV3F Tiny GNSS module ](https://www.st.com/content/st_com/en/products/positioning/gnss-modules/teseo-liv3f.html)
+* [X-NUCLEO-GNSS1A1 GNSS expansion board based on Teseo-LIV3F module for STM32 Nucleo](https://www.st.com/en/ecosystems/x-nucleo-gnss1a1.html)
+* STEVAL-STRKT01 https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/steval-strkt01.html
+* https://stm32python.gitlab.io/fr/docs/Stm32duino/exercices/x-nucleo-gnss1a1
 
 ## GNSS evaluation software for Windows
 * https://www.u-blox.com/en/product/u-center

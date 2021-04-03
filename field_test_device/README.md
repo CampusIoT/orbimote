@@ -1,18 +1,10 @@
 # Field Test Device
 
-## Default board
-The IMST iM880a board is a simple prototyping board with an IMST IMST iM880a LoRa module 
-a DS75LX temperature sensor. A NMEA0183 GNSS module can be added on the pin xx of connector X2
-
-<p align="center">
-<img src="images/im880a-ds75lx.jpg" alt="iM880a-DS75LX" width="75%"/>
-</p>
-
 ## Field Test Device
 
 The program sends periodically LoRaWAN frames at various datarate and tx power.
 
-If a GPS is plugged onto the board, the postion is sent into each LoRaWAN frames.
+If a NMEA0183 GNSS module is plugged onto the board, the postion is sent into each LoRaWAN frames. See the list of [NMEA0183 GNSS module](../gnss_modules.md).
 
 Uplink frames can be confirmed or unconfirmed by the network server.
 
@@ -29,16 +21,40 @@ The RTC of the board can be synchronized according to the [App Clock Sync Specif
 	int24 : longitude
 	int16 : altitude
 
-TODO 
-* [ ] add FCnt, RSSI, LSNR of the last downlink
+
+> The paylaod will include in a future version the following fields : downlink message counter (uint16_t), last downlink fCnt (uint16_t), last downlink RSSI (uint8_t), last downlink LSNR (int8_t) and GPIO_IN bitfield (uint8_t)
+
+
+## Boards
+
+Board:
+* [x] [boards/im880b](https://github.com/RIOT-OS/RIOT/tree/master/boards/im880b)
+* [x] [OrbiMote (im880a)](https://github.com/CampusIoT/orbimote)
+* [x] [nucleo-f446re](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f446re) + [P-NUCLEO-LRWAN1](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan1.html)
+* [x] [nucleo-f446re](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f446re) + [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/) for eu433 and eu868
+* [ ] [boards/b-l072z-lrwan1](https://github.com/RIOT-OS/RIOT/tree/master/boards/b-l072z-lrwan1)
+* [ ] [STM32WL55](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-stm32wl55)
+* [ ] [ESP32 Heltec LoRa](https://github.com/RIOT-OS/RIOT/tree/master/boards/esp32-heltec-lora32-v2)
+* [ ] [ESP32 TTGO Beam](https://github.com/RIOT-OS/RIOT/blob/master/boards/esp32-ttgo-t-beam)
+* [ ] [Bluepill](https://github.com/RIOT-OS/RIOT/tree/master/boards/bluepill-stm32f030c8) + [RFM9x](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/arduino-wiring)
+* [ ] [Generic Node](https://www.genericnode.com/)
+* [ ] LilyGo (SX1262)
+* [ ] all boards with [Microchip RN2483 module](https://github.com/RIOT-OS/RIOT/tree/master/drivers/rn2xx3)
+
+### Default board
+The IMST iM880a board is a simple prototyping board with an IMST IMST iM880a LoRa module 
+a DS75LX temperature sensor. The TX pin of a [NMEA0183 GNSS module](../gnss_modules.md) can be plugged on the pin 10 (Rx) of connector X2 (with 3V3 on pin 11 and GND on pin 12).
+
+<p align="center">
+<img src="images/im880a-ds75lx.jpg" alt="iM880a-DS75LX" width="75%"/>
+</p>
 
 ## Libraries
 
-Board:
-* [boards/im880b](https://github.com/RIOT-OS/RIOT/tree/master/boards/im880b)
-
-Drivers:
-* [drivers/ds75lx](https://github.com/RIOT-OS/RIOT/tree/master/drivers/ds75lx)
+Packages & Drivers:
+* [semtech-loramac](https://github.com/RIOT-OS/RIOT/tree/master/pkg/semtech-loramac)
+* [cayenne-lpp](https://github.com/RIOT-OS/RIOT/tree/master/pkg/cayenne-lpp)
+* [ds75lx](https://github.com/RIOT-OS/RIOT/tree/master/drivers/ds75lx)
 
 GPS modules:
 * [See notes](../gnss_modules.md)
@@ -191,7 +207,7 @@ PAYLOAD=FE0BF6FB4B
 mosquitto_pub -h $BROKER -u $MQTTUSER -P $MQTTPASSWORD -t "application/$applicationID/device/$devEUI/tx" -m '{"reference": "abcd1234","confirmed": true, "fPort": '$PORT',"data":"/gv2+0s="}'
 ```
 
-> The time is the number of seconds since 01/01/1980 (GPS start time). It is unsigned 32 bit-long integer (big endian) LSBF 
+> The time is the number of seconds since 06/01/1980 (GPS start time). It is unsigned 32 bit-long integer (big endian) LSBF 
 
 The output on the console is:
 ```bash
@@ -211,7 +227,35 @@ sent_buffer:
 
 ## Annexes
 
+## TODO
+* [ ] Add a downlink message counter (uint16_t), the last downlink fCnt (uint16_t), last downlink RSSI (uint8_t), last downlink LSNR (int8_t) and GPIO_IN bitfield (uint8_t)  into the uplink payload
+* [x] Downlink for configuring TxPeriod
+* [ ] Downlink for reading GPIO_IN
+* [ ] Downlink for setting GPIO_OUT (set or clear) for actuator control
+* [ ] Downlink for configuring the DRPWSZ_SEQUENCE
+* [ ] Downlink for configuring Confirmation
+* [ ] Downlink for rejoining (see Certification Test)
+* [ ] Downlink for setting ADR (see Certification Test)
+* [ ] Class C endpoint ?
+ 
+## Base64 utils
+Encode base64
+```bash
+echo 'Hello CampusIoT' | base64
+echo '414243442045464748' | xxd -r -p | base64
+```
+
+Decode base64
+```bash
+echo SGVsbG8gQ2FtcHVzSW9UCg== | base64 -d
+echo QUJDRCBFRkdI | base64 -d
+```
+
 ### IMST iM880a DS75LX Connectors
+
+<p align="center">
+<img src="images/im880a-ds75lx.jpg" alt="iM880a-DS75LX" width="75%"/>
+</p>
 
 ![Connector X1](https://github.com/CampusIoT/tutorial/blob/master/im880a/figs/CH340G-to-X2.png)
 
@@ -232,13 +276,5 @@ Connector X2
 | Pin 4: SWDIO (SWD data input/output)     | 2  | Green      |
 | Pin 5: NRST (RESET of target STM32)      | 5  | Yellow     |
 
-## TODO
-* Add a uint16_t confirmed counter and GPIO_IN into the payload
-* Downlink for configuring TxPeriod
-* Downlink for reading GPIO_OUT
-* Downlink for configuring GPIO (set or clear)
-* Downlink for configuring the DRPWSZ_SEQUENCE
-* Downlink for configuring Confirmation
-* Downlink for rejoining (see Certiification Test)
-* Downlink for setting ADR (see Certification Test)
- 
+
+

@@ -28,9 +28,11 @@ Here is a list of barometer components and modules : [barometers.md](./barometer
 ### 2019
 Valence, May 2019.
 ![Valence](./images/valence-balloon-liveobject+ttn-2019.png)
+Legend: The balloon track (in red), Orange Liveobject stations (in orange), TTN stations (in grey)
 ### 2020
 Aire-sur-l'Adour, September 2020.
 ![Aire-sur-l'Adour](./images/cnes-balloon-liveobject-2020.png)
+Legend: The balloon track (in green for departure, blue line and red for arrival), Orange Liveobject stations (in blue)
 
 ## License
 TBD
