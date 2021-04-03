@@ -19,6 +19,17 @@ This file is based on LoRaMAC-node from Semtech, under Revised BSD License.
 // Various type of NMEA data we can receive with the GPS.
 static const char NmeaDataTypeGPGGA[] = "GPGGA";
 static const char NmeaDataTypeGPRMC[] = "GPRMC";
+// TODO process messages GPGLL : Latitude, longitude, UTC time of position fix and status.
+// TODO process messages GPGSA : GPS receiver operating mode, satellites used in the position solution, and DOP values.
+// TODO process messages GPGSV : The number of GPS satellites in view satellite ID numbers, elevation, azimuth, and SNR values.
+// TODO process messages GPMSS : Signal-to-noise ratio, signal strength, frequency, and bit rate from a radio-beacon receiver.
+// TODO process messages GPRMC : Time, date, position, course and speed data.
+// TODO process messages GPVTG : Course and speed information relative to the ground.
+// TODO process messages GPZDA : PPS timing message (synchronized to PPS).
+
+
+// TODO process messages from BD ou GB - Beidou ; GA - Galileo ; GL - GLONASS.
+
 
 // Value used for the conversion of the position from DMS to decimal.
 static const int32_t MaxNorthPosition = 8388607;  // 2^23 - 1
