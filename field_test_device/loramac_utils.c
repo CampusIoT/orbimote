@@ -104,7 +104,7 @@ uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDa
     {
         DEBUG("[otaa] Join procedure failed: code=%d (%s)\n", joinRes, loramac_utils_err_message(joinRes));
 
-        if (initDataRate > 0)
+        if (initDataRate > LORAMAC_JOIN_MIN_DATARATE)
         {
             /* decrement Join initDataRate */
             initDataRate--;
