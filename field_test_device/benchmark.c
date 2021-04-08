@@ -99,12 +99,13 @@ void benchmark_start(semtech_loramac_t *loramac, struct benchmark_t benchmark, u
             semtech_loramac_set_tx_power(loramac, power);
             uint8_t ret = semtech_loramac_send(loramac, payload, size);
 
-        	DEBUG("[ftd] Sent @ ret=%d\n", ret);
 
-            if (ret != SEMTECH_LORAMAC_TX_DONE)
-            {
+            if (ret != SEMTECH_LORAMAC_TX_DONE) {
                 DEBUG("[ftd] ERROR: Cannot send payload: ret code: %d (%s)\n", ret, loramac_utils_err_message(ret));
+            } else {
+            	DEBUG("[ftd] Tx Done ret=%d\n", ret);
             }
+
             xtimer_sleep(*benchmark.tx_period);
 
             // send a APP_TIME_REQ request every APP_TIME_REQ_PERIOD message

@@ -128,7 +128,7 @@ uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDa
         xtimer_sleep(nextRetryTime);
     }
 
-    DEBUG("[otaa] Join procedure succeeded : ");
+    DEBUG("[otaa] Join procedure succeeded\n");
     uint8_t devaddr[LORAMAC_DEVADDR_LEN];
     semtech_loramac_get_devaddr(loramac, devaddr);
 	DEBUG("[otaa] DevAddr: "); printf_ba(devaddr,LORAMAC_DEVADDR_LEN); DEBUG("\n");
@@ -176,7 +176,7 @@ uint8_t loramac_utils_abp_join_retry_loop(semtech_loramac_t *loramac, uint8_t in
         xtimer_sleep(nextRetryTime);
     }
 
-    DEBUG("[abp] Join procedure succeeded : ");
+    DEBUG("[abp] Join procedure succeeded\n");
     uint8_t devaddr[LORAMAC_DEVADDR_LEN];
     semtech_loramac_get_devaddr(loramac, devaddr);
 	DEBUG("[abp] DevAddr:"); printf_ba(devaddr,LORAMAC_DEVADDR_LEN); DEBUG("\n");

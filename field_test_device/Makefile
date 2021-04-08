@@ -1,12 +1,5 @@
 APPLICATION=field-test-device
 
-include ./Makefile.git
-
-BOARD ?= im880b
-
-DS75LX ?= 1
-GPS ?= 1
-
 .PHONY: all
 all:
 	$(info $$DS75LX is ${DS75LX})
@@ -14,6 +7,17 @@ all:
 	$(info $$DEVEUI is ${DEVEUI})
 	$(info $$DEVADDR is ${DEVADDR})
 	$(info $$OPERATOR is ${OPERATOR})
+
+include ./Makefile.git
+
+include ./Makefile.device
+
+BOARD ?= im880b
+
+ifeq ($(BOARD),im880b)
+DS75LX ?= 1
+GPS ?= 1
+endif
 
 ifeq ($(DS75LX),1)
 USEMODULE += ds75lx
@@ -36,6 +40,9 @@ USEMODULE += hashes
 # Default radio driver is Semtech SX1272 (used by the IMST iM880ab boards)
 DRIVER ?= sx1272
 
+LORA_DRIVER ?= $(DRIVER)
+LORA_REGION ?= $(REGION)
+
 # Default region is Europe and default band is 868MHz
 REGION ?= EU868
 #REGION ?= EU433
@@ -48,20 +55,24 @@ USEMODULE += semtech_loramac_rx
 # If datarate is 255, the ADR is set to TRUE
 #
 
-ifndef CampusIoT
-OPERATOR ?= CampusIoT
-endif
-
-include ./Makefile.device
 
 # By default (for all except LLCC68)
 ifndef LORAMAC_JOIN_MIN_DATARATE
+ifeq ($(DRIVER),LLCC68) 
+LORAMAC_JOIN_MIN_DATARATE ?= 1
+else
 LORAMAC_JOIN_MIN_DATARATE ?= 0
+endif
 endif
 
 # By default
 ifndef DRPWSZ_SEQUENCE
+ifeq ($(DRIVER),LLCC68) 
+# For LLCC68 (DR1 to DR5 @ 14 dBm)
+DRPWSZ_SEQUENCE ?= 1,14,8,1,14,32,1,14,16,2,14,16,3,14,16,4,14,16,5,14,16,5,11,16,5,8,16,5,5,16,5,2,16
+else
 DRPWSZ_SEQUENCE ?= 0,14,8,0,14,32,0,14,16,1,14,16,2,14,16,3,14,16,4,14,16,5,14,16,5,11,16,5,8,16,5,5,16,5,2,16
+endif
 endif
 
 # By default
@@ -74,23 +85,45 @@ ifndef TXCNF
 TXCNF ?= false
 endif
 
-ifndef SECRET
-# SECRET should be changed and kept secret
-SECRET ?= cafebabe02000001cafebabe02ffffff
-endif
-
 # initial ADR
 ADR_ON ?= false
 
 MIN_PORT ?= 1
 MAX_PORT ?= 170
 
-ifndef CampusIoT
-OPERATOR ?= CampusIoT
-endif
-
 
 DEVELHELP ?= 1
+
+ifeq ($(OTAA),1)
+CFLAGS += -DOTAA=1
+else
+CFLAGS += -DOTAA=0
+endif
+
+ifeq ($(OTAA),0)
+CFLAGS += -DDEVADDR=\"$(DEVADDR)\"
+CFLAGS += -DAPPSKEY=\"$(APPSKEY)\"
+CFLAGS += -DNWKSKEY=\"$(NWKSKEY)\"
+endif
+
+ifdef LABEL
+CFLAGS += -DLABEL=\"$(LABEL)\"
+endif
+
+ifndef SECRET
+# SECRET should be changed and kept secret
+SECRET ?= cafebabe02000001cafebabe02ffffff
+endif
+
+ifndef DEVEUI
+CFLAGS += -DFORGE_DEVEUI_APPEUI_APPKEY -DSECRET=\"$(SECRET)\"
+else
+CFLAGS += -DDEVEUI=\"$(DEVEUI)\" -DAPPEUI=\"$(APPEUI)\" -DAPPKEY=\"$(APPKEY)\"
+endif
+
+ifndef OPERATOR
+OPERATOR ?= Undefined
+endif
 
 CFLAGS += -DREGION_$(REGION)
 CFLAGS += -DLORAMAC_REGION_STR=\"$(REGION)\"
@@ -104,18 +137,11 @@ CFLAGS += -DMIN_PORT=$(MIN_PORT) -DMAX_PORT=$(MAX_PORT)
 
 CFLAGS += -DOPERATOR=\"$(OPERATOR)\"
 
-ifndef DEVEUI
-CFLAGS += -DOTAA -DFORGE_DEVEUI_APPEUI_APPKEY -DSECRET=\"$(SECRET)\"
-else
-CFLAGS += -DOTAA -DDEVEUI=\"$(DEVEUI)\"  -DAPPEUI=\"$(APPEUI)\" -DAPPKEY=\"$(APPKEY)\"
-endif
-
-
 # Send a APP_TIME_REQ every 100 messages
 CFLAGS += -DAPP_TIME_REQ_PERIOD=100
 
-#ifdef TTN_ABP
-#CFLAGS += -DABP -DDEVADDR=\"$(DEVADDR)\" -DAPPSKEY=\"$(APPSKEY)\" -DNWKSKEY=\"$(NWKSKEY)\" -DVIRT_DEV=\"$(VIRT_DEV)\"
-#endif
+
+#CFLAGS += -DVIRT_DEV=\"$(VIRT_DEV)\"
+
 
 include $(RIOTBASE)/Makefile.include

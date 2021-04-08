@@ -33,7 +33,6 @@
 #include "git_utils.h"
 #include "wdt_utils.h"
 
-
 #ifdef DS75LX
 #include "ds75lx.h"
 #include "ds75lx_params.h"
@@ -48,12 +47,11 @@
 
 #include <random.h>
 
-
 /* Declare globally the loramac descriptor */
 static semtech_loramac_t loramac;
 
 /* Declare globally the sensor device descriptor */
-#ifdef DS75LX
+#if DS75LX == 1
 ds75lx_t ds75lx;
 #endif
 
@@ -84,7 +82,7 @@ ds75lx_t ds75lx;
 /* Implement the receiver thread */
 #define RECEIVER_MSG_QUEUE                          (4U)
 
-#ifdef OTAA
+#if OTAA == 1
 
 #ifdef FORGE_DEVEUI_APPEUI_APPKEY
 static uint8_t secret[LORAMAC_APPKEY_LEN];
@@ -101,7 +99,6 @@ static uint8_t appskey[LORAMAC_NWKSKEY_LEN] ;
 static uint8_t nwkskey[LORAMAC_APPSKEY_LEN] ;
 
 #endif
-
 
 static msg_t _receiver_queue[RECEIVER_MSG_QUEUE];
 static char _receiver_stack[THREAD_STACKSIZE_DEFAULT];
@@ -264,15 +261,19 @@ static void *receiver(void *arg)
 }
 
 static void loramac_info(void) {
-    DEBUG("[mac] Region is " LORAMAC_REGION_STR "\n");
-#if EU868_DUTY_CYCLE_ENABLED == 0
-    DEBUG("[mac] duty cycle is disabled\n");
-#else
-    DEBUG("[mac] duty cycle is enabled\n");
-#endif
+#ifdef OPERATOR
     DEBUG("[info] Operator: %s\n", OPERATOR);
+#endif
+#ifdef LABEL
+    DEBUG("[info] Label: %s\n",LABEL);
+#endif
+    DEBUG("[mac] Region: " LORAMAC_REGION_STR "\n");
+#if EU868_DUTY_CYCLE_ENABLED == 0
+    DEBUG("[mac] DutyCycle: disabled\n");
+#else
+    DEBUG("[mac] DutyCycle: enabled\n");
+#endif
 }
-
 
 static char* wdt_cmdline[] = {"wdt","start"};
 
@@ -282,9 +283,7 @@ int main(void)
 	git_cmd(0, NULL);
 	wdt_cmd(2, wdt_cmdline);
 
-
     app_clock_print_rtc();
-
 
     loramac_info();
 
@@ -294,10 +293,7 @@ int main(void)
     /* initialize the loramac stack */
     semtech_loramac_init(&loramac);
 
-
-
-#ifdef OTAA
-
+#if OTAA == 1
 
 #ifdef FORGE_DEVEUI_APPEUI_APPKEY
     /* forge the deveui, appeui and appkey of the endpoint */
@@ -346,7 +342,6 @@ int main(void)
 	random_init_by_array((uint32_t*)appskey, LORAMAC_APPSKEY_LEN/4);
 
 #endif
-
 
 
     /* start the receiver thread */

@@ -14,7 +14,7 @@ This project is under the MIT license
 #include <stdbool.h>
 
 
-#ifdef GPS
+#if GPS == 1
 
 // Return codes.
 #define GPS_SUCCESS  0
