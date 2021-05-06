@@ -64,11 +64,7 @@ GPS modules:
 
 Connect the X1 and X2 connectors according to the wiring despicted in the annexes.
 
-By default, the DevEUI, the AppEUI and the AppKey are forged using the CPU ID of the MCU. However, you can set the DevEUI, the AppEUI and the AppKey of the LoRaWAN endpoint into the `main.c`.
-
-Optional : Configure the following parameters into the program file `main.c` : `FIRST_TX_PERIOD`, `TX_PERIOD`, `DR_INIT`, `ADR_ON`, `DEBUG_ON` and `SECRET`.
-
-Register the endpoint into a LoRaWAN network (public or private) using the DevEUI, the AppEUI and the AppKey
+Register the endpoint into a LoRaWAN network (public or private) using the DevEUI, the AppEUI and the AppKey (displayed into the console).
 
 Build the firmware
 ```bash
@@ -83,6 +79,28 @@ export RIOTBASE=~/github/RIOT-OS/RIOT
 make flash-only
 ```
 
+## Setting DEVEUI APPEUI APPKEY
+By default, the DevEUI, the AppEUI and the AppKey are forged using the CPU ID of the MCU. However, you can set the DevEUI, the AppEUI and the AppKey of the LoRaWAN endpoint into the `main.c`.
+
+Optional : Configure the following parameters into the program file `main.c` : `FIRST_TX_PERIOD`, `TX_PERIOD`, `DR_INIT`, `ADR_ON`, `DEBUG_ON` and `SECRET`.
+```bash
+make SECRET=cafebabe02ffffffcafebabe02000001 binfile
+```
+
+The AppKey can be recovered from the DevEUI (displayed at startup) and the SECRET (flashed into the firmware) with the command lines below:
+```bash
+SECRET=cafebabe02000001cafebabe02ffffff                                         
+DevEUI=33323431007f1234                                                         
+AppEUI=33323431ffffffff                                                        
+SHA=$(echo -n $DevEUI$AppEUI$SECRET | xxd -r -p | shasum -b | awk '{print $1}')
+AppKey="${SHA:0:32}"
+echo $AppKey
+```
+
+The DevEUI, the AppEUI and the AppKey can be set by fixing DEVEUI APPEUI APPKEY into the `make` command
+```bash
+make DEVEUI=33323431007f1234 APPEUI=33323431ffffffff APPKEY=f482a62f0f1234ac960882a2e25f971b binfile
+```
 
 ## Enable/Disable the GNSS module
 
@@ -126,19 +144,6 @@ or
 ```bash
 ll /dev/tty.*
 minicom -s
-```
-
-## AppKey
-
-The AppKey can be recovered from the DevEUI (displayed at startup) and the SECRET (flashed into the firmware) with the command lines below:
-
-```bash
-SECRET=cafebabe02000001cafebabe02ffffff                                         
-DevEUI=33323431007f1234                                                         
-AppEUI=33323431ffffffff                                                        
-SHA=$(echo -n $DevEUI$AppEUI$SECRET | xxd -r -p | shasum -b | awk '{print $1}')
-AppKey="${SHA:0:32}"
-echo $AppKey
 ```
 
 ## Downlink
