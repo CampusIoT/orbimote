@@ -36,7 +36,7 @@ Legend: The balloon track (in green for departure, blue line and red for arrival
 
 ### 2021
 Aire-sur-l'Adour, April 2021. [more](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/balloons/2021-04-15/README.md)
-![Aire-sur-l'Adour](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/raw/master/balloons/2021-04-15/map-gw.png)
+![Aire-sur-l'Adour](./images/map-gw-202104.png)
 Legend: The 3 balloons tracks (in green for departure, red for arrival), Orange Liveobject stations in orange, Requea stations in blue, Swisscom (thru Actility) in red.
 
 ## License
