@@ -26,13 +26,18 @@ Here is a list of barometer components and modules : [barometers.md](./barometer
 ## Flights
 
 ### 2019
-Valence, May 2019.
+Valence, May 2019. [more](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/balloons/2019-05-09/README.md)
 ![Valence](./images/valence-balloon-liveobject+ttn-2019.png)
 Legend: The balloon track (in red), Orange Liveobject stations (in orange), TTN stations (in grey)
 ### 2020
-Aire-sur-l'Adour, September 2020. [twitter](https://twitter.com/CampusIoT/status/1308685481086005249)
+Aire-sur-l'Adour, September 2020. [more](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/balloons/2020-09-23/README.md)
 ![Aire-sur-l'Adour](./images/cnes-balloon-liveobject-2020.png)
 Legend: The balloon track (in green for departure, blue line and red for arrival), Orange Liveobject stations (in blue)
+
+### 2021
+Aire-sur-l'Adour, April 2021. [more](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/balloons/2021-04-15/README.md)
+![Aire-sur-l'Adour](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/raw/master/balloons/2021-04-15/map-gw.png)
+Legend: The 3 balloons tracks (in green for departure, red for arrival), Orange Liveobject stations in orange, Requea stations in blue, Swisscom (thru Actility) in red.
 
 ## License
 TBD
