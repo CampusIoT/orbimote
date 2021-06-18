@@ -44,7 +44,7 @@ Legend: The 3 balloons tracks (in green for departure, red for arrival), Orange 
 ## Altenatives
 * [HAB2 High Altitude Balloon Tracker RFM9x](https://github.com/StuartsProjects/HAB2)
 
-## Other usagers
+## Other usages
 * Runners trackers
 * Meshed-network of trail runners/trekers
 
