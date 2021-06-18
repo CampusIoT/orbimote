@@ -39,8 +39,17 @@ Aire-sur-l'Adour, April 2021. [more](https://gricad-gitlab.univ-grenoble-alpes.f
 ![Aire-sur-l'Adour](./images/map-gw-202104.png)
 Legend: The 3 balloons tracks (in green for departure, red for arrival), Orange Liveobject stations in orange, Requea stations in blue, Swisscom (thru Actility) in red.
 
+## Altenatives
+* [HAB2 High Altitude Balloon Tracker RFM9x](https://github.com/StuartsProjects/HAB2)
+
+## Other usagers
+* Runners trackers
+* Meshed-network of trail runners/trekers
+
 ## License
 TBD
 
 ## Authors
-TBD
+* Didier DONSEZ
+* Vivien QUEMA
+* Gregory NOCERA
