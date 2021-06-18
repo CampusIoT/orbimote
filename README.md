@@ -1,4 +1,4 @@
-# OrbiMote: open-sourced LoRaWAN balloon tracker
+# OrbiMote: open-sourced LoRaWAN high-altitude balloon (HAB) tracker
 
 "urbi et orbi" : to the city and the world
 
