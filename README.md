@@ -25,6 +25,8 @@ Here is a list of barometer components and modules : [barometers.md](./barometer
 
 ## Flights
 
+[High-altitude flights](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/balloons)
+
 ### 2019
 Valence, May 2019. [more](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/balloons/2019-05-09/README.md)
 ![Valence](./images/valence-balloon-liveobject+ttn-2019.png)
