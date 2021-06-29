@@ -15,7 +15,7 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 * Balloon mode, for high altitude up to 80km
 * Module on [Pycom PyTrack](https://github.com/pycom/pycom-libraries/tree/master/shields) and [Dragino LGT92](https://www.dragino.com/products/lora-lorawan-end-node/item/142-lgt-92.html)
 
-* [Documents](https://www.quectel.com/product/l76l.htm)
+* [Documents](https://www.quectel.com/product/gnss-l76/)
 
 ## U-Blox
 
