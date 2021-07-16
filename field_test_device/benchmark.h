@@ -44,6 +44,10 @@ extern "C"
 #endif
 
 struct benchmark_t {
+	uint32_t devaddr;
+#ifdef DEVADDRS
+	uint32_t* devaddr;
+#endif
 	uint8_t nb_virtual_devices;
 	uint8_t min_port;
 	uint8_t max_port;

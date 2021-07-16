@@ -7,7 +7,7 @@ This project is under the MIT license
 
 */
 
-#ifdef GPS
+#if GPS == 1
 
 #include "app.h"
 #include "gps.h"

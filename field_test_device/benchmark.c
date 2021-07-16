@@ -79,14 +79,17 @@ void benchmark_start(semtech_loramac_t *loramac, struct benchmark_t benchmark, u
             power = benchmark.drpwsz_sequence[3*i+1];
             size = benchmark.drpwsz_sequence[3*i+2];
 
-        	DEBUG("[ftd] Send @ port=%d dr=%d txpower=%d size=%d\n", port, dr, power, size);
+            // TODO uint32_t devaddr = devaddrs[cpt%ARRAYSIZE(devaddrs)];
+            uint32_t devaddr = benchmark.devaddr + (cpt%benchmark.nb_virtual_devices);
+
+        	DEBUG("[ftd] Send @ devaddr=%lx port=%d dr=%d txpower=%d size=%d\n", devaddr, port, dr, power, size);
 
         	unsigned int len = encode_benchmark(payload, size, power, dr);
 
         	len = encode_sensors(payload + len, size - len);
 
             // WARNING : If LORAMAC_TX_CNF, the firmware is blocked when the network server does not confirmed the message
-            semtech_loramac_set_tx_mode(loramac, benchmark.txconfirmed ? LORAMAC_TX_CNF : LORAMAC_TX_UNCNF);
+            //semtech_loramac_set_tx_mode(loramac, benchmark.txconfirmed ? LORAMAC_TX_CNF : LORAMAC_TX_UNCNF);
 
             /* send the LoRaWAN message */
         	if(dr == 0xff) {
@@ -95,8 +98,12 @@ void benchmark_start(semtech_loramac_t *loramac, struct benchmark_t benchmark, u
         	    semtech_loramac_set_adr(loramac, false);
         		semtech_loramac_set_dr(loramac, dr);
         	}
+
             semtech_loramac_set_tx_port(loramac, port);
             semtech_loramac_set_tx_power(loramac, power);
+
+            semtech_loramac_set_devaddr(loramac, (uint8_t*)&devaddr);
+
             uint8_t ret = semtech_loramac_send(loramac, payload, size);
 
 

@@ -237,6 +237,7 @@ sent_buffer:
 * [ ] Downlink for rejoining (see Certification Test)
 * [ ] Downlink for setting ADR (see Certification Test)
 * [ ] Class C endpoint ?
+* [ ] Multiple ABP endpoints with DEVADDRS define
  
 ## Base64 utils
 Encode base64

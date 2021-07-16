@@ -22,6 +22,9 @@
 #include "periph_conf.h"
 #include "periph/rtc.h"
 
+#include "cpu_conf.h"
+#include "periph/cpuid.h"
+
 #include "board.h"
 
 #include "fmt.h"
@@ -33,12 +36,12 @@
 #include "git_utils.h"
 #include "wdt_utils.h"
 
-#ifdef DS75LX
+#if DS75LX == 1
 #include "ds75lx.h"
 #include "ds75lx_params.h"
 #endif
 
-#ifdef GPS
+#if GPS == 1
 #include "gps.h"
 #endif
 
@@ -75,7 +78,7 @@ ds75lx_t ds75lx;
 #define PORT_DN_SET_TX_PERIOD           3
 
 #ifndef VIRT_DEV
-#define VIRT_DEV 1
+#define VIRT_DEV 						(1U)
 #endif
 
 
@@ -94,6 +97,8 @@ static uint8_t appkey[LORAMAC_APPKEY_LEN] ;
 
 #else
 
+// static uint32_t* devaddr = { DEVADDRS };
+
 static uint8_t devaddr[LORAMAC_DEVADDR_LEN] ;
 static uint8_t appskey[LORAMAC_NWKSKEY_LEN] ;
 static uint8_t nwkskey[LORAMAC_APPSKEY_LEN] ;
@@ -109,11 +114,11 @@ static void init_sensors(void){
 
     uint8_t port = PORT_UP_DATA;
 
-#ifdef GPS
+#if GPS == 1
     DEBUG("[gps] GPS is enabled (baudrate=%d)\n",STD_BAUDRATE);
 #endif
 
-#ifdef DS75LX
+#if DS75LX == 1
     DEBUG("[ds75lx] DS75LX sensor is enabled\n");
 
     int result = ds75lx_init(&ds75lx, &ds75lx_params[0]);
@@ -136,7 +141,7 @@ unsigned int encode_sensors(uint8_t *payload, const unsigned int len) {
 
 	int16_t temperature = 0;
 
-#ifdef DS75LX
+#if DS75LX == 1
     /* measure temperature */
     ds75lx_wakeup(&ds75lx);
     /* Get temperature in degrees celsius */
@@ -160,7 +165,7 @@ unsigned int encode_sensors(uint8_t *payload, const unsigned int len) {
 	int32_t lon = 0;
 	int16_t alt = 0;
 
-#ifdef GPS
+#if GPS == 1
 	gps_get_binary(&lat, &lon, &alt);
     DEBUG("[gps] get position : lat=%ld, lon=%ld, alt=%d\n",lat,lon,alt);
 #endif
@@ -194,6 +199,7 @@ static void sender(void)
 
     uint8_t drpwsz_sequence[] = { DRPWSZ_SEQUENCE };
     struct benchmark_t benchmark;
+    semtech_loramac_get_devaddr(&loramac, (uint8_t*)&benchmark.devaddr);
     benchmark.nb_virtual_devices = VIRT_DEV;
     benchmark.tx_period = &tx_period;
     benchmark.drpwsz_sequence_nb = CNT(drpwsz_sequence) / 3;
@@ -260,6 +266,13 @@ static void *receiver(void *arg)
     return NULL;
 }
 
+static void cpuid_info(void) {
+	uint8_t id[CPUID_LEN];
+	/* read the CPUID */
+	cpuid_get(id);
+	DEBUG("[info] CpuId:"); printf_ba(id,CPUID_LEN); DEBUG("\n");
+}
+
 static void loramac_info(void) {
 #ifdef OPERATOR
     DEBUG("[info] Operator: %s\n", OPERATOR);
@@ -283,8 +296,10 @@ int main(void)
 	git_cmd(0, NULL);
 	wdt_cmd(2, wdt_cmdline);
 
+
     app_clock_print_rtc();
 
+    cpuid_info();
     loramac_info();
 
     /* initialize the sensors */
@@ -322,6 +337,9 @@ int main(void)
 
 #else
     /* Convert identifiers and application key */
+
+	// uint32_t devaddr = devaddrs[0];
+
     fmt_hex_bytes(devaddr, DEVADDR);
     fmt_hex_bytes(appskey, APPSKEY);
     fmt_hex_bytes(nwkskey, NWKSKEY);

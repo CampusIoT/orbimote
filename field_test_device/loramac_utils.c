@@ -31,7 +31,9 @@
 #include "cpu_conf.h"
 #include "periph/cpuid.h"
 
+#ifdef FORGE_DEVEUI_APPEUI_APPKEY
 #include "hashes/sha1.h"
+#endif
 
 #include "xtimer.h"
 
@@ -185,6 +187,7 @@ uint8_t loramac_utils_abp_join_retry_loop(semtech_loramac_t *loramac, uint8_t in
 }
 
 
+#ifdef FORGE_DEVEUI_APPEUI_APPKEY
 
 static const uint8_t appeui_mask[LORAMAC_APPEUI_LEN/2] = { 0xff, 0xff, 0xff, 0xff };
 
@@ -216,3 +219,4 @@ void loramac_utils_forge_euis_and_key(uint8_t *deveui, uint8_t *appeui, uint8_t 
     sha1_final(&ctx, &digest);
     memcpy(appkey,digest,LORAMAC_APPKEY_LEN);
 }
+#endif
