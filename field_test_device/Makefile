@@ -50,7 +50,7 @@ endif
 ifeq ($(GPS),1)
 CFLAGS += -DGPS=1
 # define the GNSS module baudrate
-CFLAGS += -DSTD_BAUDRATE=9600
+CFLAGS += -DSTD_BAUDRATE=$(STD_BAUDRATE)
 endif
 
 FEATURES_REQUIRED += periph_rtc
