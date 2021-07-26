@@ -135,6 +135,13 @@ uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDa
     semtech_loramac_get_devaddr(loramac, devaddr);
 	DEBUG("[otaa] DevAddr: "); printf_ba(devaddr,LORAMAC_DEVADDR_LEN); DEBUG("\n");
 
+	// print nwkskey and appskey
+	uint8_t key[LORAMAC_APPKEY_LEN];
+	semtech_loramac_get_nwkskey(loramac,key);
+	DEBUG("[otaa] NwkSKey:"); printf_ba(key,LORAMAC_APPKEY_LEN); DEBUG("\n");
+	semtech_loramac_get_appskey(loramac,key);
+	DEBUG("[otaa] AppSKey:"); printf_ba(key,LORAMAC_APPKEY_LEN); DEBUG("\n");
+
     return joinRes;
 }
 
