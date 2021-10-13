@@ -17,6 +17,10 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 
 * [Documents](https://www.quectel.com/product/gnss-l76/)
 
+### Quectel L96-L GPS Module
+* Balloon mode, for high altitude up to 80km
+* embedded Mediatek MT3333 GNSS chip
+
 ## U-Blox
 
 ### U-Blox NEO-M8 series
