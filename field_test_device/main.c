@@ -362,6 +362,9 @@ int main(void)
 
 #endif
 
+#ifdef FCNT_UP
+    semtech_loramac_set_uplink_counter(&loramac, FCNT_UP);
+#endif
 
     /* start the receiver thread */
     thread_create(_receiver_stack, sizeof(_receiver_stack),

@@ -92,6 +92,11 @@ endif
 endif
 
 # By default
+ifndef APP_CLOCK_SYNC
+APP_CLOCK_SYNC ?= 1
+endif
+
+# By default
 ifndef TXPERIOD
 TXPERIOD ?= 30
 endif
@@ -141,6 +146,11 @@ endif
 ifndef OPERATOR
 OPERATOR ?= Undefined
 endif
+
+ifdef FCNT_UP
+CFLAGS += -DFCNT_UP=$(FCNT_UP)
+endif
+
 
 CFLAGS += -DREGION_$(REGION)
 CFLAGS += -DLORAMAC_REGION_STR=\"$(REGION)\"
