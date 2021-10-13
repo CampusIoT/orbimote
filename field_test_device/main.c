@@ -193,9 +193,10 @@ static void sender(void)
 	// request for clock synchronization
     semtech_loramac_set_tx_mode(&loramac, LORAMAC_TX_UNCNF);
 
+#if APP_CLOCK_SYNC == 1
 	app_clock_send_app_time_req(&loramac);
-
     xtimer_sleep(tx_period);
+#endif
 
     uint8_t drpwsz_sequence[] = { DRPWSZ_SEQUENCE };
     struct benchmark_t benchmark;
