@@ -121,7 +121,7 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 * https://stm32python.gitlab.io/fr/docs/Stm32duino/exercices/x-nucleo-gnss1a1
 
 ## Air530
-* [Grove - GPS (Air530)](https://wiki.seeedstudio.com/Grove-GPS-Air530/)
+* [Grove - GPS (Air530)](https://wiki.seeedstudio.com/Grove-GPS-Air530/) ([wiki](https://wiki.openluat.com/))
 
 ## GNSS evaluation software for Windows
 * https://www.u-blox.com/en/product/u-center
