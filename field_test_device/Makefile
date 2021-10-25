@@ -33,18 +33,36 @@ REGION ?= EU868
 
 ifndef BOARD
 BOARD ?= im880b
-# Default radio driver is Semtech SX1272 (used by the IMST iM880ab boards)
-DRIVER ?= sx1272
 endif
 
 ifeq ($(BOARD),im880b)
 DS75LX ?= 1
 GPS ?= 0
+# Default radio driver is Semtech SX1272 (used by the IMST iM880ab boards)
+DRIVER ?= sx1272
+FEATURES_REQUIRED += periph_rtc
+endif
+
+ifeq ($(BOARD),nucleo-wl55jc)
+DS75LX ?= 0
+GPS ?= 0
+DRIVER ?= sx126x_stm32wl
+endif
+
+ifeq ($(BOARD),lora-e5-dev)
+LM75 ?= 1
+GPS ?= 0
+DRIVER ?= sx126x_stm32wl
 endif
 
 ifeq ($(DS75LX),1)
 USEMODULE += ds75lx
 CFLAGS += -DDS75LX=1
+endif
+
+ifeq ($(LM75),1)
+USEMODULE += lm75
+CFLAGS += -DLM75=1
 endif
 
 ifeq ($(GPS),1)
@@ -53,7 +71,6 @@ CFLAGS += -DGPS=1
 CFLAGS += -DSTD_BAUDRATE=$(STD_BAUDRATE)
 endif
 
-FEATURES_REQUIRED += periph_rtc
 FEATURES_REQUIRED += periph_wdt
 
 USEMODULE += fmt
@@ -64,13 +81,13 @@ LORA_REGION ?= $(REGION)
 
 
 USEPKG += semtech-loramac
-USEMODULE += $(DRIVER)
+USEMODULE += auto_init_loramac
 USEMODULE += semtech_loramac_rx
+USEMODULE += $(LORA_DRIVER)
 #
 # DRPWSZ_SEQUENCE contains the sequence of triplets <datarate,tx power,payload size>
 # If datarate is 255, the ADR is set to TRUE
 #
-
 
 # By default (for all except LLCC68)
 ifndef LORAMAC_JOIN_MIN_DATARATE

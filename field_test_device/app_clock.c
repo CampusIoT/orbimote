@@ -43,7 +43,13 @@
 #include "loramac_utils.h"
 
 #include "periph_conf.h"
+
+#if MODULE_PERIPH_RTC == 1
 #include "periph/rtc.h"
+#endif
+
+
+#define DEFAULT_TM {0,0,0,1,0,121,0,0,0}
 
 // 1972 and 1976 have 366 days (DELTA_EPOCH_GPS is 315964800 seconds)
 // GPS Epoch consists of a count of weeks and seconds of the week since 0 hours (midnight) Sunday 6 January 1980
@@ -101,8 +107,10 @@ static void print_time(const char *label, const struct tm *time) {
  */
 void app_clock_print_rtc(void) {
 	/* read RTC */
-	struct tm current_time;
+	struct tm current_time = DEFAULT_TM;
+#if MODULE_PERIPH_RTC == 1
 	rtc_get_time(&current_time);
+#endif
 	print_time("[clock] Current RTC time : ", &current_time);
 	struct tm lastTimeCorrectionTime = *localtime(&lastTimeCorrection);
 	if (lastTimeCorrection == 0) {
@@ -116,9 +124,11 @@ void app_clock_print_rtc(void) {
  * Get the RTC time in seconds since 1/1/1980 (GPS time)
  */
 static unsigned int getTimeSinceEpoch(void) {
-	struct tm current_time;
+	struct tm current_time = DEFAULT_TM;
 	// Read the RTC current time
+#if MODULE_PERIPH_RTC == 1
 	rtc_get_time(&current_time);
+#endif
 	print_time("[clock] Current time: ", &current_time);
 	time_t timeSinceEpoch = mktime(&current_time);
 	// substract number of seconds between 6/1/1980 and 1/1/1970
@@ -132,16 +142,20 @@ static unsigned int getTimeSinceEpoch(void) {
  * @param timeCorrection the correction to apply to the RTC
  */
 static void correct_rtc(int timeCorrection) {
-	struct tm current_time;
+	struct tm current_time = DEFAULT_TM;
 	// Read the RTC current time
+#if MODULE_PERIPH_RTC == 1
 	rtc_get_time(&current_time);
+#endif
 	print_time("[clock] Current time    : ", &current_time);
 	time_t timeSinceEpoch = mktime(&current_time);
 	// Apply correction
 	timeSinceEpoch += timeCorrection;
 	DEBUG("[clock] Time Correction : %d\n", timeCorrection);
 	current_time = *localtime(&timeSinceEpoch);
+#if MODULE_PERIPH_RTC == 1
 	rtc_set_time(&current_time);
+#endif
 	lastTimeCorrection = mktime(&current_time);
 	print_time("[clock] RTC time fixed  : ", &current_time);
 }
@@ -152,13 +166,17 @@ static void correct_rtc(int timeCorrection) {
  * @param timeToSet the time in seconds since 6/1/1980 (GPS start time)
  */
 static void set_rtc(unsigned int timeToSet) {
-	struct tm current_time;
+	struct tm current_time = DEFAULT_TM;
 	// Read the RTC current time
+#if MODULE_PERIPH_RTC == 1
 	rtc_get_time(&current_time);
+#endif
 	print_time("[clock] Current time    : ", &current_time);
 	time_t _TimeToSet = timeToSet + DELTA_EPOCH_GPS;
 	current_time = *localtime(&_TimeToSet);
+#if MODULE_PERIPH_RTC == 1
 	rtc_set_time(&current_time);
+#endif
 	lastTimeCorrection = mktime(&current_time);
 	print_time("[clock] RTC time fixed  : ", &current_time);
 }

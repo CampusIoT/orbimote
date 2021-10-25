@@ -29,7 +29,7 @@
 
 #include "fmt.h"
 
-#include "net/loramac.h"
+//#include "net/loramac.h"
 #include "semtech_loramac.h"
 #include "loramac_utils.h"
 
@@ -51,7 +51,7 @@
 #include <random.h>
 
 /* Declare globally the loramac descriptor */
-static semtech_loramac_t loramac;
+extern semtech_loramac_t loramac;
 
 /* Declare globally the sensor device descriptor */
 #if DS75LX == 1
@@ -255,10 +255,21 @@ static void *receiver(void *arg)
                 }
                 break;
 
-            case SEMTECH_LORAMAC_RX_CONFIRMED:
-                // TODO if too much unconfirmed Tx frames --> rejoin
-                DEBUG("[dn] Received ACK from network\n");
-                break;
+			case SEMTECH_LORAMAC_RX_LINK_CHECK:
+				DEBUG("[dn] Link check information:\n"
+				   "  - Demodulation margin: %d\n"
+				   "  - Number of gateways: %d\n",
+				   loramac.link_chk.demod_margin,
+				   loramac.link_chk.nb_gateways);
+				break;
+
+			case SEMTECH_LORAMAC_RX_CONFIRMED:
+				DEBUG("[dn] Received ACK from network\n");
+				break;
+
+			case SEMTECH_LORAMAC_TX_SCHEDULE:
+				DEBUG("[dn] The Network Server has pending data\n");
+				break;
 
             default:
                 break;
@@ -307,7 +318,7 @@ int main(void)
     init_sensors();
 
     /* initialize the loramac stack */
-    semtech_loramac_init(&loramac);
+    //semtech_loramac_init(&loramac);
 
 #if OTAA == 1
 
