@@ -120,6 +120,9 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 * STEVAL-STRKT01 https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/steval-strkt01.html
 * https://stm32python.gitlab.io/fr/docs/Stm32duino/exercices/x-nucleo-gnss1a1
 
+## Air530
+* [Grove - GPS (Air530)](https://wiki.seeedstudio.com/Grove-GPS-Air530/)
+
 ## GNSS evaluation software for Windows
 * https://www.u-blox.com/en/product/u-center
 
