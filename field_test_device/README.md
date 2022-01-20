@@ -33,7 +33,7 @@ Board:
 * [x] [nucleo-f446re](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f446re) + [P-NUCLEO-LRWAN1](https://www.st.com/en/evaluation-tools/p-nucleo-lrwan1.html)
 * [x] [nucleo-f446re](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f446re) + [SX1276MB1xAS](https://os.mbed.com/components/SX1276MB1xAS/) for eu433 and eu868
 * [ ] [nucleo-f446re](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-f446re) + [Semtech LLCC68 MBed shield](https://github.com/RIOT-OS/RIOT/tree/master/drivers/sx126x)
-* [ ] [boards/b-l072z-lrwan1](https://github.com/RIOT-OS/RIOT/tree/master/boards/b-l072z-lrwan1)
+* [x] [boards/b-l072z-lrwan1](https://github.com/RIOT-OS/RIOT/tree/master/boards/b-l072z-lrwan1)
 * [x] [Nucleo WL55JC EU868](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-wl55jc)
 * [x] [Nucleo WL55JC2 EU433](https://github.com/RIOT-OS/RIOT/tree/master/boards/nucleo-wl55jc)
 * [ ] [Seeedstudio LoRa E5 Dev](https://github.com/RIOT-OS/RIOT/tree/master/boards/lora-e5-dev)
@@ -119,6 +119,14 @@ make BOARD=lora-e5-dev
 Connect the board to the SWD connector of the programmer.
 
 Flash : TODO
+
+### Build and flash for Discovery B-L072Z-LRWAN1 (`BOARD=b-l072z-lrwan1`)
+
+Build and flash the firmware
+```bash
+export RIOTBASE=~/github/RIOT-OS/RIOT
+make BOARD=b-l072z-lrwan1 LORA_DRIVER=sx1276 flash
+```
 
 ## Setting DEVEUI APPEUI APPKEY
 
