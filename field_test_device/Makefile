@@ -49,6 +49,12 @@ GPS ?= 0
 DRIVER ?= sx126x_stm32wl
 endif
 
+ifeq ($(BOARD),b-l072z-lrwan1)
+DS75LX ?= 0
+GPS ?= 0
+DRIVER ?= sx1276
+endif
+
 ifeq ($(BOARD),lora-e5-dev)
 LM75 ?= 1
 GPS ?= 0
