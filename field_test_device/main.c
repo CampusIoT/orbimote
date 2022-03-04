@@ -3,11 +3,13 @@
  * then send to the LoRaWAN network in which the endpoint is registered.
  * The payload format is LPP Cayenne.
  * 
- * Copyright (C) 2020 LIG Université Grenoble Alpes
+ * Copyright (C) 2020-2022 LIG Université Grenoble Alpes
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
  * directory for more details.
+ *
+ * @author Didier DONSEZ
  */
 
 #define ENABLE_DEBUG (1)
@@ -236,7 +238,7 @@ static void *receiver(void *arg)
                         break;
                     case PORT_DN_SET_TX_PERIOD:
                         if(loramac.rx_data.payload_len == sizeof(tx_period)) {
-                            tx_period=*((uint16_t*)loramac.rx_data.payload);
+                        	memcpy(&tx_period, loramac.rx_data.payload, sizeof(uint16_t));
                             DEBUG("[dn] Data received: tx_period=%d, port: %d\n",
                                 tx_period, loramac.rx_data.port);
                         } else {
@@ -345,7 +347,7 @@ int main(void)
     /* start the OTAA join procedure (and retries in required) */
     /*uint8_t joinRes = */ loramac_utils_join_retry_loop(&loramac, DR_INIT, JOIN_NEXT_RETRY_TIME, SECONDS_PER_DAY);
 
-	random_init_by_array((uint32_t*)appkey, LORAMAC_APPKEY_LEN/4);
+    random_init_by_array((void*)appkey, LORAMAC_APPKEY_LEN/sizeof(uint32_t));
 
 #else
     /* Convert identifiers and application key */
@@ -369,7 +371,7 @@ int main(void)
     /* start the ABP join procedure (and retries in required) */
     /*uint8_t joinRes = */ loramac_utils_abp_join_retry_loop(&loramac, DR_INIT, JOIN_NEXT_RETRY_TIME, SECONDS_PER_DAY);
 
-	random_init_by_array((uint32_t*)appskey, LORAMAC_APPSKEY_LEN/4);
+	random_init_by_array((void*)appskey, LORAMAC_APPSKEY_LEN/sizeof(uint32_t));
 
 #endif
 
