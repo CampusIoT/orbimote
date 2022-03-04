@@ -120,6 +120,14 @@ Connect the board to the SWD connector of the programmer.
 
 Flash : TODO
 
+### Build and flash for Discovery B-L072Z-LRWAN1 (`BOARD=b-l072z-lrwan1`)
+
+Build and flash the firmware
+```bash
+export RIOTBASE=~/github/RIOT-OS/RIOT
+make BOARD=b-l072z-lrwan1 LORA_DRIVER=sx1276 flash
+```
+
 ## Setting DEVEUI APPEUI APPKEY
 
 By default, the DevEUI, the AppEUI and the AppKey are forged using the CPU ID of the MCU. However, you can set the DevEUI, the AppEUI and the AppKey of the LoRaWAN endpoint into the `main.c`.
