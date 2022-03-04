@@ -82,7 +82,7 @@ void benchmark_start(semtech_loramac_t *loramac, struct benchmark_t benchmark, u
             // TODO uint32_t devaddr = devaddrs[cpt%ARRAYSIZE(devaddrs)];
             uint32_t devaddr = benchmark.devaddr + (cpt%benchmark.nb_virtual_devices);
 
-        	DEBUG("[ftd] Send @ devaddr=%lx port=%d dr=%d txpower=%d size=%d\n", devaddr, port, dr, power, size);
+        	DEBUG("[ftd] Send @ devaddr=%8lx port=%d dr=%d txpower=%d size=%d\n", devaddr, port, dr, power, size);
 
         	unsigned int len = encode_benchmark(payload, size, power, dr);
 
