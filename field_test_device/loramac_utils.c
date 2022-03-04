@@ -92,6 +92,7 @@ char *loramac_utils_err_message(uint8_t errCode)
 
 /**
  * start the OTAA join procedure (and retries if required)
+ * @SEE https://lora-developers.semtech.com/documentation/tech-papers-and-guides/the-book/joining-and-rejoining
  */
 uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDataRate, uint32_t nextRetryTime, uint32_t maxNextRetryTime)
 {
@@ -114,6 +115,8 @@ uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDa
         }
         else
         {
+        	// TODO add random time to nextRetryTime
+
             /* double nextRetryTime in order to save the battery */
             if (nextRetryTime < maxNextRetryTime)
             {
