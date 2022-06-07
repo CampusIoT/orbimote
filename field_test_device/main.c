@@ -78,6 +78,10 @@ ds75lx_t ds75lx;
 
 #define PORT_DN_TEXT                    101
 #define PORT_DN_SET_TX_PERIOD           3
+#define PORT_DN_REBOOT_NOW           	64
+#define PORT_DN_REBOOT_ONE_MINUTE       65
+#define PORT_DN_REBOOT_ONE_HOUR         66
+
 
 #ifndef VIRT_DEV
 #define VIRT_DEV 						(1U)
@@ -249,6 +253,22 @@ static void *receiver(void *arg)
                     case APP_CLOCK_PORT:
                     	(void)app_clock_process_downlink(&loramac);
                     	break;
+
+                    case PORT_DN_REBOOT_NOW:
+                        DEBUG("[dn] Reboot now. port: %d\n", loramac.rx_data.port);
+            			pm_reboot();
+                    	break;
+                    case PORT_DN_REBOOT_ONE_MINUTE:
+                        DEBUG("[dn] Reboot in 60 sec. port: %d\n", loramac.rx_data.port);
+                        xtimer_sleep(60U);
+            			pm_reboot();
+                    	break;
+                    case PORT_DN_REBOOT_ONE_HOUR:
+                        DEBUG("[dn] Reboot in 3600 sec. port: %d\n", loramac.rx_data.port);
+                        xtimer_sleep(3600U);
+            			pm_reboot();
+                    	break;
+
                     default:
                         DEBUG("[dn] Data received: ");
                         printf_ba(loramac.rx_data.payload, loramac.rx_data.payload_len);
@@ -347,6 +367,7 @@ int main(void)
     /* start the OTAA join procedure (and retries in required) */
     /*uint8_t joinRes = */ loramac_utils_join_retry_loop(&loramac, DR_INIT, JOIN_NEXT_RETRY_TIME, SECONDS_PER_DAY);
 
+    //random_init_by_array(uint32_t init_key[], int key_length)
     random_init_by_array((void*)appkey, LORAMAC_APPKEY_LEN/sizeof(uint32_t));
 
 #else
@@ -371,7 +392,8 @@ int main(void)
     /* start the ABP join procedure (and retries in required) */
     /*uint8_t joinRes = */ loramac_utils_abp_join_retry_loop(&loramac, DR_INIT, JOIN_NEXT_RETRY_TIME, SECONDS_PER_DAY);
 
-	random_init_by_array((void*)appskey, LORAMAC_APPSKEY_LEN/sizeof(uint32_t));
+    //random_init_by_array(uint32_t init_key[], int key_length)
+    random_init_by_array((void*)appskey, LORAMAC_APPSKEY_LEN/sizeof(uint32_t));
 
 #endif
 
