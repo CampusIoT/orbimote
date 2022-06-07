@@ -77,19 +77,23 @@ CFLAGS += -DGPS=1
 CFLAGS += -DSTD_BAUDRATE=$(STD_BAUDRATE)
 endif
 
+# Watchdog timer values
+
 FEATURES_REQUIRED += periph_wdt
 
 USEMODULE += fmt
 USEMODULE += xtimer
 
+# Semtech LoRaMAC
+
 LORA_DRIVER ?= $(DRIVER)
 LORA_REGION ?= $(REGION)
-
 
 USEPKG += semtech-loramac
 USEMODULE += auto_init_loramac
 USEMODULE += semtech_loramac_rx
 USEMODULE += $(LORA_DRIVER)
+
 #
 # DRPWSZ_SEQUENCE contains the sequence of triplets <datarate,tx power,payload size>
 # If datarate is 255, the ADR is set to TRUE
