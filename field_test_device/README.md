@@ -279,6 +279,15 @@ sent_buffer:
 
 > Remark: Chirpstack implements the [App Clock Sync Specification](https://lora-alliance.org/resource-hub/lorawanr-application-layer-clock-synchronization-specification-v100). The synchronization is done at the LNS level.
 
+
+### Rebooting on downlink
+
+The application can send a reboot downlink message to the endpoint throught your network server.
+
+* Send a downlink message on port 64 reboots the board immedialy
+* Send a downlink message on port 65 reboots the board after 1 minute
+* Send a downlink message on port 66 reboots the board after 1 hour
+
 ## Annexes
 
 ## TODO
@@ -292,6 +301,8 @@ sent_buffer:
 * [ ] Downlink for setting ADR (see Certification Test)
 * [ ] Class C endpoint ?
 * [ ] Multiple ABP endpoints with DEVADDRS define
+* [x] Reboot downlink message.
+* [ ] Send a confirmed uplink message for confirming the reboot
  
 ## Base64 utils
 Encode base64
