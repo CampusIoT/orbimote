@@ -98,7 +98,6 @@ Register the endpoint into a LoRaWAN network (public or private) using the DevEU
 Build the firmware
 ```bash
 export RIOTBASE=~/github/RIOT-OS/RIOT
-(cd $RIOTBASE; git checkout 6bf6b6be6c4723b49f62550a35111e57b7426aa4) 
 make binfile
 ```
 
