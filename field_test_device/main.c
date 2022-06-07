@@ -23,6 +23,7 @@
 #include "mutex.h"
 #include "periph_conf.h"
 #include "periph/rtc.h"
+#include "periph/pm.h"
 
 #include "cpu_conf.h"
 #include "periph/cpuid.h"
