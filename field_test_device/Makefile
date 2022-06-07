@@ -84,6 +84,9 @@ FEATURES_REQUIRED += periph_wdt
 USEMODULE += fmt
 USEMODULE += xtimer
 
+USEMODULE += random
+USEMODULE += prng_sha1prng
+
 # Semtech LoRaMAC
 
 LORA_DRIVER ?= $(DRIVER)
