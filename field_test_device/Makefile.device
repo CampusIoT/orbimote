@@ -1,5 +1,4 @@
 APP_CLOCK_SYNC = 1
-DS75LX = 1
 GPS = 0
 
 ifeq ($(GPS),1)

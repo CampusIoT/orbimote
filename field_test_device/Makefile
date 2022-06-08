@@ -3,10 +3,8 @@ APPLICATION=field-test-device
 .PHONY: all
 all:
 	$(info $$DS75LX is ${DS75LX})
+	$(info $$LM75 is ${LM75})
 	$(info $$GPS is ${GPS})
-	$(info $$DEVEUI is ${DEVEUI})
-	$(info $$DEVADDR is ${DEVADDR})
-	$(info $$OPERATOR is ${OPERATOR})
 
 # -----------------------------
 # Debug
@@ -55,11 +53,34 @@ GPS ?= 0
 DRIVER ?= sx1276
 endif
 
+
+# IdoSens boards are into git@github.com:CampusIoT/idosens.git
+
+ifeq ($(BOARD),idosens_sensor)
+EXTERNAL_BOARD_DIRS ?= ../../../campusiot/idosens/boards
+# Builtin sensors
+AT30TES75X ?= 1
+DRIVER ?= sx1276
+endif
+
+ifeq ($(BOARD),idosens_base)
+EXTERNAL_BOARD_DIRS ?= ../../../campusiot/idosens/boards
+# TODO add ePaper Display driver
+DRIVER ?= sx1276
+endif
+
+ifeq ($(BOARD),idosens_remote)
+EXTERNAL_BOARD_DIRS ?= ../../../campusiot/idosens/boards
+DRIVER ?= sx1276
+endif
+
 ifeq ($(BOARD),lora-e5-dev)
 LM75 ?= 1
 GPS ?= 0
 DRIVER ?= sx126x_stm32wl
 endif
+
+# Sensors
 
 ifeq ($(DS75LX),1)
 USEMODULE += ds75lx
@@ -71,11 +92,19 @@ USEMODULE += lm75
 CFLAGS += -DLM75=1
 endif
 
+ifeq ($(AT30TES75X),1)
+USEMODULE += at30tse75x
+CFLAGS += -DAT30TES75X=1
+endif
+
 ifeq ($(GPS),1)
 CFLAGS += -DGPS=1
 # define the GNSS module baudrate
 CFLAGS += -DSTD_BAUDRATE=$(STD_BAUDRATE)
 endif
+
+# TODO Add SAUL for LED
+
 
 # Watchdog timer values
 

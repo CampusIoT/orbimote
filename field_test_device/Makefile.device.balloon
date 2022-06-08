@@ -1,0 +1,123 @@
+APP_CLOCK_SYNC = 1
+LABEL = DEFAULT
+
+ifeq ($(LABEL),DEFAULT)
+OPERATOR = Unknown
+OTAA = 1
+TXPERIOD = 20
+DRPWSZ_SEQUENCE ?= 0,14,8,0,14,32,0,14,16,1,14,16,2,14,16,3,14,16,4,14,16,5,14,16
+endif
+
+
+ifeq ($(LABEL),LLCC68)
+# LLCC68 + p-nucleo-wb55 → Nacelle 3
+OPERATOR = CampusIoT
+BOARD = p-nucleo-wb55
+USEMODULE = llcc68
+DRIVER = llcc68
+LORA_DRIVER = llcc68
+
+DS75LX = 0
+GPS = 0
+
+OTAA = 1
+DEVEUI=01234567890abcdef
+APPEUI=01234567890abcdef
+APPKEY=01234567890abcdef01234567890abcdef
+
+DRPWSZ_SEQUENCE ?= 1,14,8,1,14,32,1,14,16,2,14,16,3,14,16,4,14,16,5,14,16
+LORAMAC_JOIN_MIN_DATARATE ?= 1
+
+#CFLAGS += -DISR_STACKSIZE=\(1024U\)
+
+endif
+
+
+ifeq ($(LABEL),IMST_6A6D)
+# IMST_6A6D (Actility) → Nacelle 1
+OPERATOR = Actility
+DEVADDR = fc00ac01
+endif
+
+ifeq ($(LABEL),IMST_787E)
+# IMST_787E (Actility) → Nacelle 1
+OPERATOR = Actility
+DEVADDR = fc00ac02
+endif
+
+ifeq ($(LABEL),IMST_7B82)
+# IMST_7B82 (Actility) → Nacelle 2
+OPERATOR = Actility
+DEVADDR = fc00ac03
+endif
+
+ifeq ($(LABEL),IMST_787C)
+# IMST_787C (Actility) → Nacelle 2
+OPERATOR = Actility
+DEVADDR = fc00ac04
+endif
+
+ifeq ($(LABEL),IMST_7B81)
+# IMST_7B81 (Actility) → Nacelle 3
+OPERATOR = Actility
+DEVADDR = fc00ac05
+endif
+
+ifeq ($(LABEL),IMST_7178)
+# IMST_7178 (Actility) → Nacelle 3
+OPERATOR = Actility
+DEVADDR = fc00ac06
+endif
+
+ifeq ($(OPERATOR),Actility)
+OTAA = 0
+APPSKEY = 35852cb6a538cad5dcf8d4e9d676b07a
+NWKSKEY = 3d42bd5e38e976eed9f56341b147bf51
+# April 2021 balloon flight (DR0 to DR2 @ 14 dBm)
+TXPERIOD ?= 25
+DRPWSZ_SEQUENCE ?= 0,14,8,0,14,32,0,14,16,1,14,16,2,14,16
+endif
+
+ifeq ($(OPERATOR),TTN)
+OTAA = 0
+
+#DEVEUI = B41B95E500A5ACB5
+#APPEUI = 70B3D57ED0033F54
+#APPKEY = F034F6527CA71F24B20EF23B1C3A9393
+
+DEVADDR = 26013BA0
+APPSKEY = 2B3FC3ABD194E4CE1161A8E1E0FD59E1
+NWKSKEY = FC68F3CEB202BEAE8EB322C5E16283FC
+
+#DEVADDRS = 260112D7,26013BA0
+
+# April 2021 balloon flight (DR0 to DR2 @ 14 dBm)
+TXPERIOD ?= 10
+#DRPWSZ_SEQUENCE ?= 0,14,8,0,14,32,0,14,16,1,14,16,2,14,16
+DRPWSZ_SEQUENCE ?= 5,14,8,5,14,32,5,14,16
+CFLAGS += -DVIRT_DEV=$(VIRT_DEV)
+
+endif
+
+
+# October 2021 balloon flight
+ifeq ($(OPERATOR),HELIUM)
+OTAA = 0
+
+# [otaa] DevEUI:33323431007f787c                                                  
+# [otaa] AppEUI:33323431ffffffff                                                  
+# [otaa] AppKey:4036d9aad3970bc429b52b5b7507bb0b                                  
+# https://console.helium.com/devices/40218023-8336-45f5-a2eb-2af45b8aed47
+
+DEVADDR = 48000355
+APPSKEY = f850e38d9ea707a697dbf15a3971d4e4
+NWKSKEY = 88cd512a353d21c3b5759cffc3af297b
+
+APP_CLOCK_SYNC = 0
+FCNT_UP =  20
+TXPERIOD = 5
+# DR0 to DR2 @ 14 dBm
+DRPWSZ_SEQUENCE = 0,14,8,0,14,32,0,14,16,1,14,16,2,14,16
+
+endif
+

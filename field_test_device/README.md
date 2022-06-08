@@ -45,6 +45,9 @@ Board:
 * [ ] [Dragino LGT92 GPS Tracker](https://www.dragino.com/products/lora-lorawan-end-node/item/142-lgt-92.html) : STM32L072, [Quectel GNSS L76-L](https://www.quectel.com/product/gnss-l76-l/) + [TDK MPU 9250](https://invensense.tdk.com/products/motion-tracking/9-axis/mpu-9250/)
 * [ ] LilyGo (SX1262)
 * [ ] all boards with [Microchip RN2483 module](https://github.com/RIOT-OS/RIOT/tree/master/drivers/rn2xx3)
+* [x] Idosens Sensor (SX1276)
+* [x] Idosens Remote (SX1276)
+* [x] Idosens Base (SX1276) add ePaper Display Driver
 
 ### Default board
 

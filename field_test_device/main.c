@@ -44,6 +44,11 @@
 #include "ds75lx_params.h"
 #endif
 
+#if AT30TES75X == 1
+#include "at30tse75x.h"
+#endif
+
+
 #if GPS == 1
 #include "gps.h"
 #endif
@@ -59,6 +64,10 @@ extern semtech_loramac_t loramac;
 /* Declare globally the sensor device descriptor */
 #if DS75LX == 1
 ds75lx_t ds75lx;
+#endif
+
+#if AT30TES75X == 1
+at30tse75x_t at30tse75x;
 #endif
 
 // Count the number of elements in an array.
@@ -136,6 +145,17 @@ static void init_sensors(void){
     }
 #endif
 
+#if AT30TES75X == 1
+    DEBUG("[at30tse75x] AT30TES75X sensor is enabled\n");
+
+    int result = at30tse75x_init(&at30tse75x, PORT_A, AT30TSE75X_TEMP_ADDR);
+    if (result != 0)
+    {
+        DEBUG("[error] Failed to initialize AT30TES75X sensor\n");
+        port = PORT_UP_ERROR;
+    }
+#endif
+
     semtech_loramac_set_tx_port(&loramac, port);
 }
 
@@ -155,6 +175,18 @@ unsigned int encode_sensors(uint8_t *payload, const unsigned int len) {
     ds75lx_read_temperature(&ds75lx, &temperature);
     ds75lx_shutdown(&ds75lx);
     DEBUG("[ds75lx] get temperature : temperature=%d\n",temperature);
+
+#endif
+
+#if AT30TES75X == 1
+    /* measure temperature */
+    //at30tse75x_wakeup(&at30tse75x);
+    /* Get temperature in degrees celsius */
+    float ftemp;
+    at30tse75x_get_temperature(&at30tse75x, &ftemp);
+    temperature = (int16_t)(ftemp * 100);
+    //at30tse75x_shutdown(&at30tse75x);
+    DEBUG("[at30tse75x] get temperature : temperature=%d\n",temperature);
 
 #endif
 
