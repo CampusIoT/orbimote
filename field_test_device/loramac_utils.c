@@ -37,6 +37,8 @@
 
 #include "xtimer.h"
 
+#include "loramac_utils.h"
+
 
 #ifndef RETRYTIME_PERCENT
 #define RETRYTIME_PERCENT (25U)
@@ -50,8 +52,6 @@ void printf_ba(const uint8_t* ba, size_t len) {
         DEBUG("%02x", ba[i]);
     }
 }
-
-
 
 char *loramac_utils_err_message(uint8_t errCode)
 {
@@ -144,6 +144,10 @@ uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDa
 	DEBUG("[otaa] NwkSKey:"); printf_ba(key,LORAMAC_APPKEY_LEN); DEBUG("\n");
 	semtech_loramac_get_appskey(loramac,key);
 	DEBUG("[otaa] AppSKey:"); printf_ba(key,LORAMAC_APPKEY_LEN); DEBUG("\n");
+	uint32_t _devaddr = devaddr[3] << 24 & devaddr[2] << 16 & devaddr[1] << 8 & devaddr[0];
+	DEBUG("[otaa] Network: %s\n",loramac_utils_get_lorawan_network(_devaddr));
+
+	// TODO: print the Operator for the DevAddr with loramac_utils_get_lorawan_network(devaddr)
 
     return joinRes;
 }
@@ -192,6 +196,8 @@ uint8_t loramac_utils_abp_join_retry_loop(semtech_loramac_t *loramac, uint8_t in
     uint8_t devaddr[LORAMAC_DEVADDR_LEN];
     semtech_loramac_get_devaddr(loramac, devaddr);
 	DEBUG("[abp] DevAddr:"); printf_ba(devaddr,LORAMAC_DEVADDR_LEN); DEBUG("\n");
+	uint32_t _devaddr = devaddr[3] << 24 & devaddr[2] << 16 & devaddr[1] << 8 & devaddr[0];
+	DEBUG("[abp] Network: %s\n",loramac_utils_get_lorawan_network(_devaddr));
 
 	return joinRes;
 }
@@ -230,3 +236,115 @@ void loramac_utils_forge_euis_and_key(uint8_t *deveui, uint8_t *appeui, uint8_t 
     memcpy(appkey,digest,LORAMAC_APPKEY_LEN);
 }
 #endif
+
+
+#define DEVADDR_MASK_NETID1								(0xFE000000)
+#define DEVADDR_MASK_NETID3								(0xFFFE0000)
+#define DEVADDR_MASK_NETID6								(0xFFFFFC00)
+
+
+// Experimental NetID 1 (00000000 - 01FFFFFF)
+#define DEVADDR_BASE_EXPERIMENTAL						(0x00000000)
+// Experimental NetID 1 (02000000 - 03FFFFFF)
+#define DEVADDR_BASE_EXPERIMENTAL1						(0x02000000)
+// CampusIoT NetId 6 (FC00AC00 - FC00AFFF)
+#define DEVADDR_BASE_UGA								(0xFC00AC00)
+// TTN NetID 1 (26000000 - 27FFFFFF)
+#define DEVADDR_BASE_TTN								(0x26000000)
+// Actility NetID 1 (04000000 - 05FFFFFF)
+#define DEVADDR_BASE_ACTILITY							(0x04000000)
+// Orange NetID 1 (1E000000 - 1FFFFFFF)
+#define DEVADDR_BASE_ORANGE								(0x1E000000)
+// Bouygues Telecom NetID 1 (0E000000 - 0FFFFFFF)
+#define DEVADDR_BASE_BOUYGUES_TELECOM					(0x0E000000)
+// Requea NetId 6 (FC006800 - FC006BFF)
+#define DEVADDR_BASE_REQUEA								(0xFC006800)
+
+
+// Swisscom NetID 1 (08000000 - 09FFFFFF)
+#define DEVADDR_BASE_SWISSCOM							(0x08000000)
+// KPN NetID 1 (2A000000 - 2BFFFFFF)
+#define DEVADDR_BASE_KPN								(0x2A000000)
+// Digita NetID 3 (E0020000 - E003FFFF)
+#define DEVADDR_BASE_DIGITA								(0xE0020000)
+
+// Cisco Systems NetID 1 (2A000000 - 2BFFFFFF)
+#define DEVADDR_BASE_CISCO_SYSTEMS						(0x2A000000)
+// TATA Communication NetID 1(22000000 - 23FFFFFF)
+#define DEVADDR_BASE_TATA_COMMUNICATIONS				(0x22000000)
+
+// Lacuna NetId 6 (FC00A000 - FC00A3FF)
+#define DEVADDR_BASE_LACUNA								(0xFC00A000)
+// Hiber NetId 6 (FC008400 - FC0087FF)
+#define DEVADDR_BASE_HIBER								(0xFC008400)
+
+// Multitech NetID 1 (2E000000 - 2FFFFFFF)
+#define DEVADDR_BASE_MULTITECH							(0x2E000000)
+// Schneider Electric NetID 3 (E02E0000 - E02FFFFF)
+#define DEVADDR_BASE_SCHNEIDER_ELECTRIC					(0xE02E0000)
+// Kerlink NetID 1 (24000000 - 25FFFFFF)
+#define DEVADDR_BASE_KERLINK							(0x24000000)
+
+
+#define IS_BELONGING_TO_NETWORK(devaddr,devaddr_subnet,devaddr_mask) ( devaddr_subnet == ( devaddr & devaddr_mask ))
+
+
+#define NELEMS(x)  (sizeof(x) / sizeof((x)[0]))
+
+typedef struct lorawan_network {
+
+	/*
+	 * @brief Subnet of the DevAddr
+	 */
+	uint32_t devaddr_subnet;
+
+	/*
+	 * @brief Mask of the DevAddr
+	 */
+	uint32_t devaddr_mask;
+
+	/*
+	 * @brief Name of the network
+	 */
+	char* name;
+
+	// TODO add char* region;
+
+
+} lorawan_network_t;
+
+// TODO complete the list with https://www.thethingsnetwork.org/docs/lorawan/prefix-assignments/
+
+static const lorawan_network_t lorawan_networks[] = {
+//		{ DEVADDR_BASE_EXPERIMENTAL, DEVADDR_MASK_NETID1, "Experimental"},
+//		{ DEVADDR_BASE_EXPERIMENTAL1, DEVADDR_MASK_NETID1, "Experimental1"},
+		{ DEVADDR_BASE_ACTILITY, DEVADDR_MASK_NETID1, "Actility"},
+		{ DEVADDR_BASE_TTN, DEVADDR_MASK_NETID1, "The Things Network"},
+		{ DEVADDR_BASE_ORANGE, DEVADDR_MASK_NETID1, "Orange"},
+		{ DEVADDR_BASE_BOUYGUES_TELECOM, DEVADDR_MASK_NETID1, "Bouygues Telecom"},
+		{ DEVADDR_BASE_KERLINK, DEVADDR_MASK_NETID1, "Kerlink"},
+		{ DEVADDR_BASE_CISCO_SYSTEMS, DEVADDR_MASK_NETID1, "Cisco Systems"},
+		{ DEVADDR_BASE_TATA_COMMUNICATIONS, DEVADDR_MASK_NETID1, "Tata Communications"},
+		{ DEVADDR_BASE_MULTITECH, DEVADDR_MASK_NETID1, "Mulitech"},
+
+		{ DEVADDR_BASE_SCHNEIDER_ELECTRIC, DEVADDR_MASK_NETID3, "Schneider Electric"},
+
+		{ DEVADDR_BASE_LACUNA, DEVADDR_MASK_NETID6, "Lacuna Space"},
+		{ DEVADDR_BASE_HIBER, DEVADDR_MASK_NETID6, "Hiber"},
+		{ DEVADDR_BASE_REQUEA, DEVADDR_MASK_NETID6, "Requea"},
+		{ DEVADDR_BASE_UGA, DEVADDR_MASK_NETID6, "Université Grenoble Alpes"}
+};
+
+const char* loramac_utils_get_lorawan_network(const uint32_t devaddr) {
+	// TODO Special case for Helium
+
+	for(unsigned int i=0; i < NELEMS(lorawan_networks); i++) {
+		const lorawan_network_t* ln = lorawan_networks + i;
+		if (IS_BELONGING_TO_NETWORK(devaddr,ln->devaddr_subnet, ln->devaddr_mask)) {
+			return ln->name;
+		}
+	}
+
+	return "Unknown";
+}
+

@@ -36,6 +36,8 @@ extern "C"
 
     void loramac_utils_forge_euis_and_key(uint8_t *deveui, uint8_t *appeui, uint8_t *appkey, const uint8_t* secret);
 
+    const char* loramac_utils_get_lorawan_network(const uint32_t devaddr);
+
     void printf_ba(const uint8_t* ba, size_t len);
 
 #endif

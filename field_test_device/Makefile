@@ -2,9 +2,15 @@ APPLICATION=field-test-device
 
 .PHONY: all
 all:
+	$(info $$MAKEFILE_DEVICE is ${MAKEFILE_DEVICE})
+	$(info $$OPERATOR is ${OPERATOR})
+	$(info $$DRIVER is ${DRIVER})
+	$(info $$REGION is ${REGION})
 	$(info $$DS75LX is ${DS75LX})
 	$(info $$LM75 is ${LM75})
+	$(info $$AT30TES75X is ${AT30TES75X})
 	$(info $$GPS is ${GPS})
+		
 
 # -----------------------------
 # Debug
@@ -21,10 +27,13 @@ QUIET ?= 1
 #CFLAGS += -DENABLE_DEBUG=1
 CFLAGS += -DDEBUG_ASSERT_VERBOSE=1
 
+ifdef MAKEFILE_DEVICE
+include $(MAKEFILE_DEVICE)
+else
+include ./Makefile.device
+endif
 
 include ./Makefile.git
-
-include ./Makefile.device
 
 # Default region is Europe and default band is 868MHz
 REGION ?= EU868
