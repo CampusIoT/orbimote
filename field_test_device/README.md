@@ -182,7 +182,7 @@ Disable region duty cycle
 ```
 
 ## Console
-Connect the board TX pin to USBSerial port and then configure and start `minicom` or `Pyterm`.
+Connect the board TX pin to USBSerial port and then configure and start `minicom` or `Pyterm` or `tio`.
 
 > if GPS is enabled, the baudrate is 9600 b/s. Else the baudrate is 115200 b/s.
 
@@ -197,6 +197,15 @@ or
 ll /dev/tty.*
 minicom -s
 ```
+
+or
+```bash
+brew install tio
+tio -L
+tio -b 115200 -m INLCRNL /dev/tty.usbserial-142xxx
+```
+
+
 
 ## Downlink
 
