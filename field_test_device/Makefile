@@ -42,13 +42,37 @@ ifndef BOARD
 BOARD ?= im880b
 endif
 
+
 ifeq ($(BOARD),im880b)
-DS75LX ?= 1
-GPS ?= 0
+
+BOARD = im880b
 # Default radio driver is Semtech SX1272 (used by the IMST iM880ab boards)
 DRIVER ?= sx1272
 FEATURES_REQUIRED += periph_rtc
+
+ifeq ($(MODEL),semtech-demomote)
+GPS ?= 1
+USEMODULE += mma8x5x
+USEMODULE += mag3110
+USEMODULE += mpl3115a2
+# USEMODULE += sx9500 # TO BE IMPLEMENTED
+else
+DS75LX ?= 1
+GPS ?= 0
 endif
+endif
+
+ifeq ($(MODEL),semtech-demomote)
+BOARD = im880b
+DRIVER ?= sx1272
+FEATURES_REQUIRED += periph_rtc
+GPS ?= 1
+USEMODULE += mma8x5x
+USEMODULE += mag3110
+USEMODULE += mpl3115a2
+# USEMODULE += sx9500 # TO BE IMPLEMENTED
+endif
+
 
 ifeq ($(BOARD),nucleo-wl55jc)
 DS75LX ?= 0
@@ -88,6 +112,14 @@ LM75 ?= 1
 GPS ?= 0
 DRIVER ?= sx126x_stm32wl
 endif
+
+ifeq ($(BOARD),lora-e5-mini)
+BOARD = lora-e5-dev
+GPS ?= 0
+DRIVER ?= sx126x_stm32wl
+endif
+
+
 
 # Sensors
 
