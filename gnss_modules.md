@@ -25,7 +25,6 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 
 ### U-Blox NEO-M8 series
 
-
 * https://www.u-blox.com/en/product/neo-m8-series¨
 * https://www.u-blox.com/en/positioning-chips-and-modules#tab-standard-precision-gnss
 
@@ -43,6 +42,10 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 #### GY-NEO6MV2
 
 > Note: The GY-NEO6MV2 modules available on Aliexpress require a 5V VCC and baudrate is 9600. 
+
+#### ZED-F9P
+* https://www.u-blox.com/en/product/zed-f9p-module
+* [GPS RTK (Real Time Kinematics)@Sparkfun](https://learn.sparkfun.com/tutorials/what-is-gps-rtk/all)
 
 ## ADH
 

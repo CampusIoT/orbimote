@@ -185,7 +185,7 @@ Disable region duty cycle
 ```
 
 ## Console
-Connect the board TX pin to USBSerial port and then configure and start `minicom` or `Pyterm`.
+Connect the board TX pin to USBSerial port and then configure and start `minicom` or `Pyterm` or `tio`.
 
 > if GPS is enabled, the baudrate is 9600 b/s. Else the baudrate is 115200 b/s.
 
@@ -200,6 +200,15 @@ or
 ll /dev/tty.*
 minicom -s
 ```
+
+or
+```bash
+brew install tio
+tio -L
+tio -b 115200 -m INLCRNL /dev/tty.usbserial-142xxx
+```
+
+
 
 ## Downlink
 
@@ -305,7 +314,8 @@ The application can send a reboot downlink message to the endpoint throught your
 * [ ] Downlink for configuring Confirmation
 * [ ] Downlink for rejoining (see Certification Test)
 * [ ] Downlink for setting ADR (see Certification Test)
-* [ ] Class C endpoint ?
+* [ ] Class C endpoint -> `semtech_loramac_set_class(&loramac, LORAMAC_CLASS_C);
+* [ ] Class B endpoint -> `semtech_loramac_set_class(&loramac, LORAMAC_CLASS_B);`
 * [ ] Multiple ABP endpoints with DEVADDRS define
 * [x] Reboot downlink message.
 * [ ] Send a confirmed uplink message for confirming the reboot
