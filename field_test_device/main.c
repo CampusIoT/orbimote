@@ -48,6 +48,21 @@
 #include "at30tse75x.h"
 #endif
 
+#if MODULE_MAG3110 == 1
+#include "mag3110.h"
+#include "mag3110_params.h"
+#endif
+
+#if MODULE_MMA8X5X == 1
+#include "mma8x5x.h"
+#include "mma8x5x_params.h"
+#endif
+
+#if MODULE_MPL3115A2 == 1
+#include "mpl3115a2.h"
+#include "mpl3115a2_params.h"
+#endif
+
 
 #if GPS == 1
 #include "gps.h"
@@ -62,12 +77,24 @@
 extern semtech_loramac_t loramac;
 
 /* Declare globally the sensor device descriptor */
-#if DS75LX == 1
+#if MODULE_DS75LX == 1
 ds75lx_t ds75lx;
 #endif
 
-#if AT30TES75X == 1
+#if MODULE_AT30TES75X == 1
 at30tse75x_t at30tse75x;
+#endif
+
+#if MODULE_MAG3110 == 1
+static mag3110_t mag3110;
+#endif
+
+#if MODULE_MMA8X5X == 1
+static mma8x5x_t mma8x5x;
+#endif
+
+#if MODULE_MPL3115A2 == 1
+static mpl3115a2_t mpl3115a2;
 #endif
 
 // Count the number of elements in an array.
@@ -129,15 +156,16 @@ static uint16_t tx_period = TX_PERIOD;
 static void init_sensors(void){
 
     uint8_t port = PORT_UP_DATA;
+    int result;
 
 #if GPS == 1
     DEBUG("[gps] GPS is enabled (baudrate=%d)\n",STD_BAUDRATE);
 #endif
 
-#if DS75LX == 1
+#if MODULE_DS75LX == 1
     DEBUG("[ds75lx] DS75LX sensor is enabled\n");
 
-    int result = ds75lx_init(&ds75lx, &ds75lx_params[0]);
+    result = ds75lx_init(&ds75lx, &ds75lx_params[0]);
     if (result != DS75LX_OK)
     {
         DEBUG("[error] Failed to initialize DS75LX sensor\n");
@@ -145,16 +173,51 @@ static void init_sensors(void){
     }
 #endif
 
-#if AT30TES75X == 1
+#if MODULE_AT30TES75X == 1
     DEBUG("[at30tse75x] AT30TES75X sensor is enabled\n");
 
-    int result = at30tse75x_init(&at30tse75x, PORT_A, AT30TSE75X_TEMP_ADDR);
+    result = at30tse75x_init(&at30tse75x, PORT_A, AT30TSE75X_TEMP_ADDR);
     if (result != 0)
     {
         DEBUG("[error] Failed to initialize AT30TES75X sensor\n");
         port = PORT_UP_ERROR;
     }
 #endif
+
+#if MODULE_MAG3110 == 1
+    puts("MAG3110 magnetometer driver test application\n");
+    printf("Initializing MAG3110 magnetometer at I2C_%i... ",
+           mag3110_params[0].i2c);
+    if (mag3110_init(&mag3110, &mag3110_params[0]) != MAG3110_OK) {
+        DEBUG("[error] Failed to initialize MAG3110 sensor\n");
+        port = PORT_UP_ERROR;
+    }
+#endif
+
+#if MODULE_MMA8X5X == 1
+    puts("MMA8652 accelerometer driver test application\n");
+    printf("Initializing MMA8652 accelerometer at I2C_DEV(%i)... ", mma8x5x_params->i2c);
+
+    result = mma8x5x_init(&mma8x5x, mma8x5x_params);
+    if(result != MMA8X5X_OK) {
+    	DEBUG("[error] Failed to initialize MMA8X5X sensor\n");
+    	port = PORT_UP_ERROR;
+    }
+#endif
+
+#if MODULE_MPL3115A2 == 1
+	result = mpl3115a2_init(&mpl3115a2, &mpl3115a2_params[0]);
+	if(result != MPL3115A2_OK) {
+    	DEBUG("[error] Failed to initialize MMA8X5X sensor\n");
+    	port = PORT_UP_ERROR;
+	}
+
+	if (mpl3115a2_set_active(&mpl3115a2) != MPL3115A2_OK) {
+		puts("[FAILED] activate measurement!");
+		port = PORT_UP_ERROR;
+	}
+#endif
+
 
     semtech_loramac_set_tx_port(&loramac, port);
 }
@@ -168,17 +231,19 @@ unsigned int encode_sensors(uint8_t *payload, const unsigned int len) {
 
 	int16_t temperature = 0;
 
-#if DS75LX == 1
+#if MODULE_DS75LX == 1
+	{
     /* measure temperature */
     ds75lx_wakeup(&ds75lx);
     /* Get temperature in degrees celsius */
     ds75lx_read_temperature(&ds75lx, &temperature);
     ds75lx_shutdown(&ds75lx);
     DEBUG("[ds75lx] get temperature : temperature=%d\n",temperature);
-
+	}
 #endif
 
-#if AT30TES75X == 1
+#if MODULE_AT30TES75X == 1
+    {
     /* measure temperature */
     //at30tse75x_wakeup(&at30tse75x);
     /* Get temperature in degrees celsius */
@@ -187,7 +252,7 @@ unsigned int encode_sensors(uint8_t *payload, const unsigned int len) {
     temperature = (int16_t)(ftemp * 100);
     //at30tse75x_shutdown(&at30tse75x);
     DEBUG("[at30tse75x] get temperature : temperature=%d\n",temperature);
-
+    }
 #endif
 
     unsigned int i = 0;
@@ -196,8 +261,67 @@ unsigned int encode_sensors(uint8_t *payload, const unsigned int len) {
 	payload[i++] = (temperature >> 8) & 0xFF;
 	payload[i++] = (temperature >> 0) & 0xFF;
 
-	if(len < sizeof(int16_t) + (2*3)+ sizeof(int16_t)) {
-		return sizeof(int16_t);
+	if(len < i + (3*4)) {
+		return i;
+	}
+
+#if MODULE_MAG3110 == 1
+    {
+    mag3110_data_t data;
+    int8_t temp;
+    mag3110_read(&mag3110, &data);
+    printf("Field strength: X: %d Y: %d Z: %d\n", data.x, data.y, data.z);
+    mag3110_read_dtemp(&mag3110, &temp);
+    printf("Die Temperature T: %d\n", temp);
+    // TODO add to payload
+    }
+#endif
+
+	if(len < i + (3*4)) {
+		return i;
+	}
+
+#if MODULE_MMA8X5X == 1
+    {
+    mma8x5x_data_t data;
+    mma8x5x_read(&mma8x5x, &data);
+
+    printf("Acceleration [in mg]: X: %d Y: %d Z: %d\n", data.x, data.y, data.z);
+    // TODO add to payload
+    }
+#endif
+
+    if(len < i + (2+2+1)) {
+		return i;
+	}
+
+#if MODULE_MPL3115A2 == 1
+    {
+    uint32_t pressure;
+    int16_t temperature;
+    uint8_t status;
+    if ((mpl3115a2_read_pressure(&mpl3115a2, &pressure, &status) |
+         mpl3115a2_read_temp(&mpl3115a2, &temperature)) != MPL3115A2_OK) {
+        puts("[FAILED] read MPL3115A2 values!");
+    } else {
+        printf("Pressure: %u Pa, Temperature: %3d.%d C, State: %#02x\n",
+               (unsigned int)pressure, temperature/10, abs(temperature%10), status);
+    }
+
+	payload[i++] = (pressure >> 24) & 0xFF;
+	payload[i++] = (pressure >> 16) & 0xFF;
+
+	payload[i++] = (temperature >> 8) & 0xFF;
+	payload[i++] = (temperature >> 0) & 0xFF;
+
+	payload[i++] = (status) & 0xFF;
+
+    // TODO add to payload
+    }
+#endif
+
+	if(len < i + (2*3)+ sizeof(int16_t)) {
+		return i;
 	}
 
 	int32_t lat = 0;

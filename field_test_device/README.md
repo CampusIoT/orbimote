@@ -151,7 +151,10 @@ echo $AppKey
 
 The DevEUI, the AppEUI and the AppKey can be set by fixing DEVEUI APPEUI APPKEY into the `make` command
 ```bash
-make DEVEUI=33323431007f1234 APPEUI=33323431ffffffff APPKEY=f482a62f0f1234ac960882a2e25f971b binfile
+DevEUI=33323431007f1234
+AppEUI=33323431ffffffff
+AppKey=f482a62f0f1234ac960882a2e25f971b
+make DEVEUI=$DevEUI APPEUI=$AppEUI APPKEY=$AppKey binfile
 ```
 
 ## Enable/Disable the GNSS module
