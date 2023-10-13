@@ -58,6 +58,10 @@ $GPTXT,01,01,02,ANTSUPERV=AC SD PDoS SR*20
 
 > Note: The GY-NEO6MV2 modules available on Aliexpress require a 5V VCC and baudrate is 9600. 
 
+#### ZOE-M8Q
+
+* [RAK5146 LoRa Gateway](https://store.rakwireless.com/products/wislink-concentrator-module-sx1303-rak5146-lorawan?variant=39677269409990) : Built-in ZOE-M8Q GPS module
+
 #### ZED-F9P
 
 * up to 80000 m
