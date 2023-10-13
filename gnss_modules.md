@@ -45,6 +45,15 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 
 #### U-Blox NEO-6M-0-001
 
+> Warming: [some module labeled NEO-6M-0-001 bought at Aliexpress are fake](https://portal.u-blox.com/s/question/0D52p00008eQuqZCAS/neo6m-spi-problem-solved) :
+
+```
+$GPTXT,01,0?$GPTXT,01,01,02,u-blox ag - www.u-blox.com*50
+$GPTXT,01,01,02,HW  UBX-G5xxx  00040005 FF59FFFFp*67
+$GPTXT,01,01,02,ROM CORE 5.00 (28483) Jun  6 2008 14:45:11*40
+$GPTXT,01,01,02,ANTSUPERV=AC SD PDoS SR*20
+```
+
 #### GY-NEO6MV2
 
 > Note: The GY-NEO6MV2 modules available on Aliexpress require a 5V VCC and baudrate is 9600. 
