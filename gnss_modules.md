@@ -4,11 +4,13 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 
 ## Quectel
 
+[Balloon mode modules](https://www.quectel.com/gnss-iot-modules): L70-R, L70-RL, L76, L96
 ### Quectel L80 GPS Module
 * https://www.quectel.com/product/l80.htm
 * https://www.gotronic.fr/art-shield-lora-et-gps-113990254-27806.htm#complte_desc
 * 14 euros chez RS https://fr.rs-online.com/web/p/puces-gps-et-modules-gps/9084085/
 * 7 USD chez Avnet https://www.avnet.com/shop/us/products/quectel-wireless-solutions/l80-m39-3074457345626708837/
+* 49 euros chez [MIKROE-1714](https://fr.farnell.com/mikroelektronika/mikroe-1714/carte-add-on-gps3-click/dp/2521701)
 
 ### Quectel L76-L GPS Module
 
@@ -21,6 +23,8 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 * Balloon mode, for high altitude up to 80km
 * embedded Mediatek MT3333 GNSS chip
 
+* [L96EVB-KIT eval board](https://www.digikey.fr/fr/products/detail/quectel/L96EVB-KIT)
+  
 ## U-Blox
 
 ### U-Blox NEO-M8 series
@@ -37,13 +41,33 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 
 ### U-Blox NEO-M6 series
 
+* [TTGO T-BEAM Tracker LoRa GPS tracker]()
+
 #### U-Blox NEO-6M-0-001
+
+> Warming: [some module labeled NEO-6M-0-001 bought at Aliexpress are fake](https://portal.u-blox.com/s/question/0D52p00008eQuqZCAS/neo6m-spi-problem-solved) :
+
+```
+$GPTXT,01,0?$GPTXT,01,01,02,u-blox ag - www.u-blox.com*50
+$GPTXT,01,01,02,HW  UBX-G5xxx  00040005 FF59FFFFp*67
+$GPTXT,01,01,02,ROM CORE 5.00 (28483) Jun  6 2008 14:45:11*40
+$GPTXT,01,01,02,ANTSUPERV=AC SD PDoS SR*20
+```
 
 #### GY-NEO6MV2
 
 > Note: The GY-NEO6MV2 modules available on Aliexpress require a 5V VCC and baudrate is 9600. 
 
+#### ZOE-M8Q
+
+up to 50000 m
+
+* [RAK5146 LoRa Gateway](https://store.rakwireless.com/products/wislink-concentrator-module-sx1303-rak5146-lorawan?variant=39677269409990) : Built-in ZOE-M8Q GPS module
+
 #### ZED-F9P
+
+* up to 80000 m
+
 * https://www.u-blox.com/en/product/zed-f9p-module
 * [GPS RTK (Real Time Kinematics)@Sparkfun](https://learn.sparkfun.com/tutorials/what-is-gps-rtk/all)
 
@@ -57,6 +81,14 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 
 * Sparkfun GP-735 https://www.sparkfun.com/products/13670 https://cdn.sparkfun.com/datasheets/GPS/GP-735T-150203.pdf
 * https://www.generationrobots.com/media/GP-635T-121130-datasheet.pdf
+
+## Sierra Wireless
+
+### AirPrime XA1110
+
+80,000m maximum (Balloon mode)
+
+[SparkFun GPS Breakout - XA1110 (Qwiic)](https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide/hardware-overview)
 
 ## MediaTek
 
@@ -87,6 +119,18 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
     UBX-8030-KT chipset
 
 * http://www.stotoncn.com/gnssmodule/showproduct.php?lang=en&id=63
+
+## MTK3339 chipset
+
+https://cdn.sparkfun.com/assets/parts/1/2/2/8/0/PMTK_Packet_User_Manual.pdf
+
+‘3’: Balloon mode: For high-altitude balloon purpose that the vertical movement will have more effect
+on the position calculation.
+```
+$PMTK886,3*2B<CR><LF> :Enter balloon mode.
+Return: $PMTK001,886,3*36<CR><LF>
+```
+* [Adafruit Ultimate GPS v3](https://www.adafruit.com/product/746) [manual](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-ultimate-gps.pdf)
 
 ## Globalsat
 
@@ -145,6 +189,8 @@ $GPTXT,01,01,02,MO=GR*67
 
 ![u-center](./images/ublox-center.png)
 ![u-center Stoton](./images/ublox-center-stoton.png)
+
+
 
 ## See also
 * [Stuart Robinson, Comparison of High Altitude Balloon GPSs](https://github.com/StuartsProjects/GPSTutorial/tree/master/GPS%20performance%20comparisons#high-altitude-balloon-gpss)
