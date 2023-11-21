@@ -126,6 +126,20 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
 ## Air530
 * [Grove - GPS (Air530)](https://wiki.seeedstudio.com/Grove-GPS-Air530/) ([wiki](https://wiki.openluat.com/))
 
+## AT6558R
+[doc](https://www.icofchina.com/d/file/xiazai/2016-12-05/b1be6f481cdf9d773b963ab30a2d11d8.pdf)
+
+in Dragino LGT92
+
+```
+$GPTXT,01,01,02,MA=CASIC*27
+$GPTXT,01,01,02,IC=AT6558R-5N-52-1C580901*15
+$GPTXT,01,01,02,SW=URANUS5,V5.3.0.0*1D
+$GPTXT,01,01,02,TB=2020-03-26,13:25:12*4B
+$GPTXT,01,01,02,MO=GR*67
+```
+
+
 ## GNSS evaluation software for Windows
 * https://www.u-blox.com/en/product/u-center
 
