@@ -27,18 +27,6 @@ According [CoCom](https://en.wikipedia.org/wiki/CoCom) regulations, most of comm
   
 ## U-Blox
 
-### U-Blox NEO-M8 series
-
-* https://www.u-blox.com/en/product/neo-m8-series¨
-* https://www.u-blox.com/en/positioning-chips-and-modules#tab-standard-precision-gnss
-
-#### U-Blox SAM-M8Q
-    up to 50000 m
-    
-* https://www.sparkfun.com/products/15210
-* https://cdn.sparkfun.com/assets/4/e/b/9/f/SAM-M8Q_DataSheet__UBX-16012619_.pdf
-* https://cdn.sparkfun.com/assets/5/d/d/2/3/SAM-M8Q_HardwareIntegrationManual__UBX-16018358_.pdf
-
 ### U-Blox NEO-M6 series
 
 * [TTGO T-BEAM Tracker LoRa GPS tracker]()
@@ -58,11 +46,26 @@ $GPTXT,01,01,02,ANTSUPERV=AC SD PDoS SR*20
 
 > Note: The GY-NEO6MV2 modules available on Aliexpress require a 5V VCC and baudrate is 9600. 
 
-#### ZOE-M8Q
+### MAX-7
 
-up to 50000 m
+[RAK1910 : GNSS GPS Location Module u-Blox MAX-7Q](https://store.rakwireless.com/products/rak1910-max-7q-gnss-location-sensor) Altitude max : 50,000 m
 
+### M8
+
+### U-Blox NEO-M8 series
+
+* https://www.u-blox.com/en/product/neo-m8-series¨
+* https://www.u-blox.com/en/positioning-chips-and-modules#tab-standard-precision-gnss
+
+#### U-Blox SAM-M8Q
+    up to 50000 m
+    
+* https://www.sparkfun.com/products/15210
+* https://cdn.sparkfun.com/assets/4/e/b/9/f/SAM-M8Q_DataSheet__UBX-16012619_.pdf
+* https://cdn.sparkfun.com/assets/5/d/d/2/3/SAM-M8Q_HardwareIntegrationManual__UBX-16018358_.pdf
 * [RAK5146 LoRa Gateway](https://store.rakwireless.com/products/wislink-concentrator-module-sx1303-rak5146-lorawan?variant=39677269409990) : Built-in ZOE-M8Q GPS module
+
+### ZED-F9 (RTK)
 
 #### ZED-F9P
 
