@@ -125,6 +125,8 @@ $GPTXT,01,01,02,ANTSUPERV=AC SD PDoS SR*20
 
 ## MTK3339 chipset
 
+Default baudrate :  9600 bps
+
 https://cdn.sparkfun.com/assets/parts/1/2/2/8/0/PMTK_Packet_User_Manual.pdf
 
 ‘3’: Balloon mode: For high-altitude balloon purpose that the vertical movement will have more effect
