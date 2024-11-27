@@ -93,6 +93,12 @@ $GPTXT,01,01,02,ANTSUPERV=AC SD PDoS SR*20
 
 [SparkFun GPS Breakout - XA1110 (Qwiic)](https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide/hardware-overview)
 
+https://cdn.sparkfun.com/assets/parts/1/2/2/8/0/GlobalTop_Titan_X1_Datasheet.pdf
+
+Interface : UART (9600, 115200), I2C
+
+LOCUS : internal 2 days log
+
 ## MediaTek
 
 ### MediaTek X1110
