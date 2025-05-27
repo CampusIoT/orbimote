@@ -1,3 +1,7 @@
+
+
+RIOTBASE ?= ${HOME}/github/RIOT-OS/RIOT
+
 APPLICATION=field-test-device
 
 .PHONY: all
@@ -35,17 +39,38 @@ endif
 
 include ./Makefile.git
 
+
+ifeq ($(OPENLOG),1)
+CFLAGS += -DSTDIO_UART_BAUDRATE=9600U
+endif
+
+
+ifeq ($(MODEL),seed-wio-e5)
+
+# Default region is Europe and default band is 868MHz
+REGION ?= EU868
+BOARD ?= lora-e5-dev
+GPS ?= 0
+DRIVER ?= sx126x_stm32wl
+ADS1115 = 1
+BME680 = 1
+CFLAGS += -DBME680_PARAM_I2C_ADDR=0x76
+CFLAGS += -Wno-type-limits
+endif
+
+
 # Default region is Europe and default band is 868MHz
 REGION ?= EU868
 
-ifndef BOARD
+ifdef BOARD
 BOARD ?= im880b
 endif
 
 
-ifeq ($(BOARD),im880b)
 
-BOARD = im880b
+ifeq ($(BOARD),im880b)
+# Default region is Europe and default band is 868MHz
+REGION ?= EU868
 # Default radio driver is Semtech SX1272 (used by the IMST iM880ab boards)
 DRIVER ?= sx1272
 FEATURES_REQUIRED += periph_rtc
@@ -108,7 +133,7 @@ DRIVER ?= sx1276
 endif
 
 ifeq ($(BOARD),lora-e5-dev)
-LM75 ?= 1
+#LM75 ?= 1
 GPS ?= 0
 DRIVER ?= sx126x_stm32wl
 endif
@@ -137,6 +162,19 @@ ifeq ($(AT30TES75X),1)
 USEMODULE += at30tse75x
 CFLAGS += -DAT30TES75X=1
 endif
+
+ifeq ($(BME680),1)
+CFLAGS += -DBME680=1
+USEMODULE += bme680_i2c
+USEMODULE += bme680_fp
+USEMODULE += printf_float
+endif
+
+ifeq ($(ADS1115),1)
+USEMODULE += ads101x
+CFLAGS += -DADS1115=1
+endif
+
 
 ifeq ($(GPS),1)
 CFLAGS += -DGPS=1
@@ -180,6 +218,12 @@ else
 LORAMAC_JOIN_MIN_DATARATE ?= 0
 endif
 endif
+
+# By default
+ifndef LORAMAC_JOIN_TXPOWERIDX
+LORAMAC_JOIN_TXPOWERIDX ?= 1
+endif
+
 
 # By default
 ifndef DRPWSZ_SEQUENCE
@@ -256,6 +300,7 @@ CFLAGS += -DREGION_$(REGION)
 CFLAGS += -DLORAMAC_REGION_STR=\"$(REGION)\"
 #CFLAGS += -DLORAMAC_ACTIVE_REGION=LORAMAC_REGION_$(REGION)
 CFLAGS += -DLORAMAC_JOIN_MIN_DATARATE=$(LORAMAC_JOIN_MIN_DATARATE)
+CFLAGS += -DLORAMAC_JOIN_TXPOWERIDX=$(LORAMAC_JOIN_TXPOWERIDX)
 CFLAGS += -DDRPWSZ_SEQUENCE=$(DRPWSZ_SEQUENCE)
 CFLAGS += -DTXPERIOD=$(TXPERIOD)
 CFLAGS += -DTXCNF=$(TXCNF)

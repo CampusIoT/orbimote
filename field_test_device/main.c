@@ -64,6 +64,11 @@
 #endif
 
 
+#if MODULE_BME680 == 1
+#include "bme680.h"
+#include "bme680_params.h"
+#endif
+
 #if GPS == 1
 #include "gps.h"
 #endif
@@ -157,6 +162,8 @@ static void init_sensors(void){
 
     uint8_t port = PORT_UP_DATA;
     int result;
+
+	(void) result;
 
 #if GPS == 1
     DEBUG("[gps] GPS is enabled (baudrate=%d)\n",STD_BAUDRATE);

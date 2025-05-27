@@ -1,3 +1,5 @@
+# For board=imst880b + DS75LX  temperature sensor
+
 APP_CLOCK_SYNC = 1
 DS75LX = 1
 GPS = 0
@@ -6,7 +8,24 @@ ifeq ($(GPS),1)
 STD_BAUDRATE = 9600
 endif
 
+# Tx Power index for EU868 (LoRaWAN specification)
+# 0 Max EIRP
+# 1 Max EIRP – 2dB
+# 2 Max EIRP – 4dB
+# 3 Max EIRP – 6dB
+# 4 Max EIRP – 8dB
+# 5 Max EIRP – 10dB
+# 6 Max EIRP – 12dB
+# 7 Max EIRP – 14dB
+
+# EIRP refers to the Equivalent Isotropically Radiated Power, which is the radiated output power referenced to an isotropic antenna radiating power equally in all directions and whose gain is expressed in dBi.
+# ERP = EIRP – 2.15dB; it is referenced to a half-wave dipole antenna whose gain is expressed in dBd
+# By default, the Max EIRP is considered to be +16 dBm. If the end-device cannot achieve 16 dBm EIRP, the Max EIRP SHOULD be communicated to the network server using an out-of-band channel during the end-device commissioning process.
+
 OTAA = 1
-DRPWSZ_SEQUENCE ?= 0,14,8,0,14,32,0,14,16,1,14,16,2,14,16,3,14,16,4,14,16,5,14,16,5,1,16,5,8,16,5,5,16,5,2,16
+# sequence of <datarate, txpower idx, payload length>
+# TxPower in dBm DRPWSZ_SEQUENCE ?= 0,14,8,0,14,32,0,14,16,1,14,16,2,14,16,3,14,16,4,14,16,5,14,16,5,1,16,5,8,16,5,5,16,5,2,16
+DRPWSZ_SEQUENCE ?= 0,1,8,0,1,32,0,1,16,1,1,16,2,1,16,3,1,16,4,1,16,5,1,16,5,2,16,5,3,16,5,4,16,5,5,16,5,6,16,5,7,16
 LORAMAC_JOIN_MIN_DATARATE ?= 0
+LORAMAC_JOIN_TXPOWERIDX ?= 1
 TXPERIOD ?= 60

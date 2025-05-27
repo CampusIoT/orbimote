@@ -14,7 +14,7 @@ The RTC of the board can be synchronized according to the [App Clock Sync Specif
 
 	fPort : 2 to 170
 	
-	uint8 : txpower (2,5,8,11,14) in dBm
+	uint8 : txpower idx (1 .. 7) related to the Txpower table into the Regional Parameters spec
 	uint8 : datarate (0,1,2,3,4,5)
 	int16 : temperature in 0.01 °C
 	int24 : latitude
@@ -181,7 +181,7 @@ Enable region duty cycle
 
 Disable region duty cycle
 ```c
-#define EU868_DUTY_CYCLE_ENABLED                    0
+#define EU868_DUTY_CAAYCLE_ENABLED                    0
 ```
 
 ## Console

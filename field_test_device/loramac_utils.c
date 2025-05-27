@@ -53,6 +53,22 @@ void printf_ba(const uint8_t* ba, size_t len) {
     }
 }
 
+/*
+char *loramac_utils_txpower_to_dbm(uint8_t txpower_idx)
+{
+
+#if REGION == EU868
+
+
+#else
+
+#error Unsupported region
+
+#endif
+
+}
+*/
+
 char *loramac_utils_err_message(uint8_t errCode)
 {
     switch (errCode)
@@ -98,9 +114,10 @@ uint8_t loramac_utils_join_retry_loop(semtech_loramac_t *loramac, uint8_t initDa
 {
     // TODO print DevEUI, AppEUI, AppKey
 
-    DEBUG("[otaa] Starting join procedure: dr=%d\n", initDataRate);
+    DEBUG("[otaa] Starting join procedure: dr=%d @ txpower idx %d\n", initDataRate, LORAMAC_JOIN_TXPOWERIDX);
 
     semtech_loramac_set_dr(loramac, initDataRate);
+    semtech_loramac_set_tx_power(loramac, LORAMAC_JOIN_TXPOWERIDX);
 
     uint8_t joinRes;
     while ((joinRes = semtech_loramac_join(loramac, LORAMAC_JOIN_OTAA)) != SEMTECH_LORAMAC_JOIN_SUCCEEDED)
