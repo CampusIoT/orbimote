@@ -494,6 +494,7 @@ int main(void)
 	git_cmd(0, NULL);
 	wdt_cmd(2, wdt_cmdline);
 
+    // TODO add i2c_scanner for listing I2C devices
 
     app_clock_print_rtc();
 
