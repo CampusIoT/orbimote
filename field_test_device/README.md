@@ -120,7 +120,17 @@ make BOARD=lora-e5-dev
 
 Connect the board to the SWD connector of the programmer.
 
-Flash : TODO
+Flash : [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) + STLink v2
+
+> NB: The [`seed_lora-e5-mini`](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/seed/-/blob/main/seed_lora-e5-mini/README.md?ref_type=heads) board includes 1x [BME680](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/) and 2x [ADS1115](https://www.ti.com/product/ADS1115)
+
+
+### Build and flash for Nucleo WL55JC (`BOARD=nucleo-wl55jc`)
+
+TODO
+
+Two boards : Nucleo WL55JC1 (eu868) and Nucleo WL55JC2 (eu433)
+
 
 ### Build and flash for Discovery B-L072Z-LRWAN1 (`BOARD=b-l072z-lrwan1`)
 
