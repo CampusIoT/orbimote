@@ -107,6 +107,7 @@ LOCUS : internal 2 days log
     AT Command to Enter balloon mode : $PMTK886,3*2B<CR><LF>
 
 * https://cdn.sparkfun.com/assets/parts/1/2/2/8/0/GlobalTop_Titan_X1_Datasheet.pdf
+* https://cdn.sparkfun.com/assets/parts/1/2/2/8/0/PMTK_Packet_User_Manual.pdf
 * https://www.sparkfun.com/products/14414
 * https://learn.sparkfun.com/tutorials/sparkfun-gps-breakout---xa1110-qwiic-hookup-guide
 
