@@ -154,6 +154,7 @@ static void correct_rtc(int timeCorrection) {
 	DEBUG("[clock] Time Correction : %d\n", timeCorrection);
 	current_time = *localtime(&timeSinceEpoch);
 #if MODULE_PERIPH_RTC == 1
+	DEBUG("[clock] Set RTC with %d\n", timeCorrection);
 	rtc_set_time(&current_time);
 #endif
 	lastTimeCorrection = mktime(&current_time);

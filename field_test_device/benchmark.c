@@ -51,9 +51,15 @@ unsigned int encode_benchmark(uint8_t *payload, unsigned int len, uint8_t power,
 
 void benchmark_start(semtech_loramac_t *loramac, struct benchmark_t benchmark, unsigned int (*encode_sensors)(uint8_t*, const unsigned int)) {
 
+
+#if APP_CLOCK_SYNC == 1
+    DEBUG("[ftd] Start clock sync\n");
+	app_clock_send_app_time_req(loramac);
+	xtimer_sleep(*benchmark.tx_period);
+#endif
+
     // Start benchmark
     DEBUG("[ftd] Start benchmark\n");
-
 
     /* set ADR flag */
     semtech_loramac_set_adr(loramac, benchmark.adr);
@@ -116,6 +122,8 @@ void benchmark_start(semtech_loramac_t *loramac, struct benchmark_t benchmark, u
 
             xtimer_sleep(*benchmark.tx_period);
 
+#if APP_CLOCK_SYNC == 1
+
             // send a APP_TIME_REQ request every APP_TIME_REQ_PERIOD message
             if(cpt%APP_TIME_REQ_PERIOD == 0) {
             	// keep the current MAC configuration
@@ -123,7 +131,7 @@ void benchmark_start(semtech_loramac_t *loramac, struct benchmark_t benchmark, u
             	app_clock_send_app_time_req(loramac);
             	xtimer_sleep(*benchmark.tx_period);
             }
-
+#endif
         }
 
         /* sleep tx_period secs */

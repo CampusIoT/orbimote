@@ -14,6 +14,8 @@ all:
 	$(info $$LM75 is ${LM75})
 	$(info $$AT30TES75X is ${AT30TES75X})
 	$(info $$GPS is ${GPS})
+	$(info $$TXPERIOD is ${TXPERIOD})
+	$(info $$APP_CLOCK_SYNC is ${APP_CLOCK_SYNC})
 		
 
 # -----------------------------
@@ -145,6 +147,9 @@ DRIVER ?= sx126x_stm32wl
 endif
 
 
+
+# App Clock Sync
+CFLAGS += -DAPP_CLOCK_SYNC=$(APP_CLOCK_SYNC)
 
 # Sensors
 
